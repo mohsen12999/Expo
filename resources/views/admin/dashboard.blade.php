@@ -1,0 +1,67 @@
+@extends('layouts.admin')
+
+@section('title',  __('words.Dashboard'))
+
+@section('myheader')
+@endsection
+
+@section('content')
+<section class="content-header">
+    <h1>{{ __('words.Dashboard') }}</h1>
+</section>
+
+<section class="content">
+  <div class="row">
+
+    <div class="col-lg-4 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-aqua">
+        <div class="inner">
+          <h3>{{$package_count}}</h3>
+
+          <p>{{ __('words.YourPackage') }}</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-shopping-cart"></i>
+        </div>
+        <a href="{{url('admin\user-package')}}" class="small-box-footer">{{ __('words.YourPackageList') }} <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-green">
+        <div class="inner">
+          <h3>{{$booth_count}}</h3>
+
+          <p>{{ __('words.YourBooth') }}</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-object-ungroup"></i>
+        </div>
+        <a href="{{url('admin\booth')}}" class="small-box-footer">{{ __('words.YourBoothList') }} <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3>{{$invoice_count }}</h3>
+
+          <p>{{ __('words.YourInvoice') }}</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-money"></i>
+        </div>
+        <a href="{{url('admin\your-invoice')}}" class="small-box-footer">{{ __('words.YourInvoiceList') }} <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+@endsection
+
+@section('myfooter')
+@endsection

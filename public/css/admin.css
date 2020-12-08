@@ -1,0 +1,146 @@
+.no-data {
+    text-align: center;
+    padding: 5rem;
+}
+.no-data > * {
+    margin-top: 2rem;
+}
+
+.radio.with-img img {
+    margin-top: 1rem;
+    display: block;
+}
+
+.row.radio-list > div.col-md-4.col-xs-12 {
+    padding: 0 !important;
+}
+
+.radio.with-img [type="radio"] + div {
+    cursor: pointer;
+    padding: 15px !important;
+    border-radius: 5px !important;
+}
+
+.radio.with-img [type="radio"]:checked + div {
+    background-color: lightgray;
+}
+
+.radio.with-img img {
+    max-width: 100%;
+}
+
+.radio.with-img input[type="radio"] {
+    display: none;
+}
+
+.mycard {
+    padding: 5px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.table.table-hover td {
+    vertical-align: middle;
+}
+
+.box-footer .btn {
+    width: 100%;
+}
+
+label.expo-label {
+    text-align: center;
+}
+
+label.expo-label img {
+    max-height: 200px;
+}
+
+label.expo-label [type="radio"]:checked + div {
+    background-color: lightgray;
+}
+
+label.expo-label > div {
+    padding: 2rem;
+}
+
+label.expo-label [type="radio"] {
+    display: none;
+}
+
+.direct-chat-msg {
+    margin: 2rem;
+}
+
+.brand-figure {
+    padding: 5px;
+    border: 1px solid gray;
+    margin: 5px;
+    text-align: center;
+    width: max-content;
+    display: inline-table;
+}
+
+.card.package-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+
+    border-radius: 30px;
+    color: white;
+    opacity: 0.9;
+    transition: all 500ms;
+}
+
+.card.package-card .card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card.package-card div.img {
+    text-align: center;
+}
+
+.card.package-card div.img img {
+    max-width: min(90%, 150px);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: auto;
+}
+
+.card.package-card .header-info {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card.package-card .header-info .package-price span.price {
+    font-size: 4rem;
+}
+
+.card.package-card .header-info .package-price span.duration {
+    font-size: 1rem;
+}
+
+.card.package-card .card-footer,
+.card.package-card .card-body .card-title {
+    text-align: center;
+}
+
+.card.package-card .card-footer .btn {
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0.5rem 2rem;
+}
+
+.card.package-card .card-body .benefit-list {
+    font-size: 1.6rem;
+}
