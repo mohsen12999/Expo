@@ -71,6 +71,7 @@ class ExpoCategoryController extends Controller
         }
 
         $category->title = $request->title;
+        $category->description = '';
         $category->status = $request->status == "on";
 
         $category->save();
@@ -135,6 +136,7 @@ class ExpoCategoryController extends Controller
         }
 
         $category->title = $request->title ?? "";
+        $category->description = '';
         $category->price = $request->price ?? "";
         $category->status = $request->status == "on";
 
