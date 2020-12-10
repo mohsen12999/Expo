@@ -260,5 +260,5 @@ return [
     'ExpoCategories' => 'ExpoCategories',
     'SearchCompanyPlaceHolder' => 'Type to search in Companies',
     'ExpoPackages' => 'Expo Packages',
-    '' => '',
+    'Duration' => 'Duration',
 ];

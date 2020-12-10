@@ -51,8 +51,8 @@
           <td> {{ $comment->status==0?__('words.Pending'):__('words.Accepted') }} </td>
 
           <td>
-            @if ($expo->status==0)
-              <form style="display:inline;" action="{{ url('admin/expo-comment/' . $expo->id) }}" method="post"
+            @if ($comment->status==0)
+              <form style="display:inline;" action="{{ url('admin/expo-comment/' . $comment->id) }}" method="post"
                 onsubmit="return confirm('{{ __('words.AcceptCommentMessage') }}');">
                     @csrf
                     <button class="btn btn-danger" title="{{ __('words.AcceptComment') }}">
@@ -61,7 +61,7 @@
               </form>
             @endif
 
-            <form style="display:inline;" action="{{ url('admin/expo-comment/' . $expo->id) }}" method="post"
+            <form style="display:inline;" action="{{ url('admin/expo-comment/' . $comment->id) }}" method="post"
               onsubmit="return confirm('{{ __('words.DeleteCommentMessage') }}');">
                   @csrf
                   @method('DELETE')

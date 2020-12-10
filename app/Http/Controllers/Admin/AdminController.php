@@ -124,7 +124,7 @@ class AdminController extends Controller
 
         $message->file = '';
         if ($request->hasFile('attachment')) {
-            $file = $request->file('video');
+            $file = $request->file('attachment');
             $file_type = $file->getMimeType();
             $file_type_kind = explode('/', $file_type)[0];
             if ($file_type_kind == 'video' || $file_type_kind = "image" || $file_type_kind = 'application' || $file_type_kind = 'text') {

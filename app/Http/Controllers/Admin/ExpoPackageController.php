@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic;
 
-class PackageController extends Controller
+class ExpoPackageController extends Controller
 {
     /**
      * Create a new controller instance.
