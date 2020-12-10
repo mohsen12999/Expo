@@ -254,4 +254,5 @@ return [
     'ExpoCategories' => 'گروه بندی نمایشگاه',
     'SearchCompanyPlaceHolder' => 'برای جستجو تایپ کنید',
     'ExpoPackages' => 'پکیج نمایشگاه ها',
+    'Duration' => 'مدت زمان',
 ];

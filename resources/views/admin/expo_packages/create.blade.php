@@ -43,7 +43,7 @@
             <span for="title" class="text-danger"></span>
         </div>
         <div class="form-group">
-          <label for="description" class="control-label">{{ __('words.description') }}</label>
+          <label for="description" class="control-label">{{ __('words.Description') }}</label>
           <textarea id="description" name="description" class="form-control"></textarea>
           <span for="description" class="text-danger"></span>
         </div>
