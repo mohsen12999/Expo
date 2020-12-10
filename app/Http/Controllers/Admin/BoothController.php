@@ -199,7 +199,7 @@ class BoothController extends Controller
         $booth->user_id = Auth::user()->id;
 
         $booth->user_package_id = $request->package_id;
-        $booth->package_id = $package->id;
+        $booth->expo_package_id = $package->id;
 
         $booth->expo_id = $request->expo_id;
         $booth->theme_id = $request->theme_id;

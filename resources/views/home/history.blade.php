@@ -24,7 +24,7 @@
                 <div class="card">
                     <img class="card-img-top" src="{{ asset($expo->pic) }}" alt="{{$expo->title}}">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{url('/expo/'.$expo->id)}}">{{title}}</a></h5>
+                        <h5 class="card-title"><a href="{{url('/expo/'.$expo->id)}}">{{$expo->title}}</a></h5>
                         <p class="card-text">{{$expo->description}}</p>
                         @if ($expo->video && $expo->video!='')
                             <a href="{{ asset($expo->video) }}" target="_blank"><img src="{{ asset('/img/video.png')}}" style="width: 50px" alt=""></a>
