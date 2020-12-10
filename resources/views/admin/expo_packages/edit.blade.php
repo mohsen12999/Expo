@@ -44,6 +44,11 @@
             <input id="title" name="title" class="form-control" value="{{$package->title}}" required/>
             <span for="title" class="text-danger"></span>
         </div>
+        <div class="form-group">
+          <label for="description" class="control-label">{{ __('words.description') }}</label>
+          <textarea id="description" name="description" class="form-control">{{$package->description}} </textarea>
+          <span for="description" class="text-danger"></span>
+       </div>
 
         <div class="form-group">
           <label for="price" class="control-label">{{ __('words.Price') }}</label>

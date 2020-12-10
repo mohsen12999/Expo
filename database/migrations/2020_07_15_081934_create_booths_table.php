@@ -41,7 +41,7 @@ class CreateBoothsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreignId('package_id')->nullable()->constrained();
+            $table->foreignId('expo_package_id')->nullable()->constrained();
             $table->foreignId('theme_id')->nullable()->constrained();
 
             $table->foreignId('user_package_id')->nullable()->constrained();

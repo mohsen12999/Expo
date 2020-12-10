@@ -144,7 +144,7 @@
                     @endforeach
 
                   <li class="list-group-item">
-                    <form method="POST" action="{{ url('/expo/'.$expo->id) }}" >
+                    <form method="POST" action="{{ url('/expo/'.$expo->id) }}" > @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>

@@ -27,7 +27,7 @@ class ExpoCategoryController extends Controller
     public function index()
     {
         //
-        $menu = 'categories';
+        $menu = 'expo_categories';
         $categories = ExpoCategory::orderBy('id', 'desc')->get();
 
         return view('admin.expo_categories.index', compact('categories', 'menu'));
@@ -41,7 +41,7 @@ class ExpoCategoryController extends Controller
     public function create()
     {
         //
-        $menu = 'categories';
+        $menu = 'expo_categories';
         return view('admin.expo_categories.create', compact('menu'));
     }
 
@@ -71,6 +71,7 @@ class ExpoCategoryController extends Controller
         }
 
         $category->title = $request->title;
+        $category->description = '';
         $category->status = $request->status == "on";
 
         $category->save();
@@ -98,7 +99,7 @@ class ExpoCategoryController extends Controller
     public function edit($id)
     {
         //
-        $menu = 'categories';
+        $menu = 'expo_categories';
         $category = ExpoCategory::find($id);
 
         return view('admin.expo_categories.edit', compact('id', 'category', 'menu'));
@@ -135,6 +136,7 @@ class ExpoCategoryController extends Controller
         }
 
         $category->title = $request->title ?? "";
+        $category->description = '';
         $category->price = $request->price ?? "";
         $category->status = $request->status == "on";
 

@@ -9,7 +9,7 @@ use App\UserExpoPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserPackageController extends Controller
+class UserExpoPackageController extends Controller
 {
     /**
      * Create a new controller instance.
