@@ -32,6 +32,7 @@
         <tr>
           <th>{{ __('words.Pic') }}</th>
           <th>{{ __('words.Title') }}</th>
+          <th>{{ __('words.Duration') }}</th>
           <th>{{ __('words.Description') }}</th>
           <th>{{ __('words.Functions') }}</th>
         </tr>
@@ -41,6 +42,7 @@
         <tr>
           <td style="background: lightgray;"><img src="{{$package->pic}}" height="75" alt="{{ $package->title }} pic" /></td>
           <td>{{$package->title}}</td>
+          <td>{{$package->duration}}</td>
           <td>{{$package->description}}</td>
           <td>
             <a class="btn btn-warning" href="{{action('Admin\PackageController@edit', $package['id'])}}">

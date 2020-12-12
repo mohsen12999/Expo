@@ -39,6 +39,8 @@
         <tr>
           <th>{{ __('words.Pic') }}</th>
           <th>{{ __('words.Title') }}</th>
+          <th>{{ __('words.StartTime') }}</th>
+          <th>{{ __('words.EndTime') }}</th>
         </tr>
 
         @foreach ($userCategories as $category)
@@ -46,6 +48,8 @@
           <tr>
             <td><img src="{{$category->category->pic}}" height="75" alt="{{ $category->category->title }} pic" /></td>
             <td>{{$category->category->title}}</td>
+            <td>{{$category->start}}</td>
+            <td>{{$category->end}}</td>
           </tr>
 
         @endforeach

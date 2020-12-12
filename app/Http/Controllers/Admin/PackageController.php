@@ -84,7 +84,7 @@ class PackageController extends Controller
 
         $package->type = 0;
         $package->status = 0;
-        $package->duration = 0;
+        $package->duration = $request->duration ?? 12;
 
         $package->save();
 
@@ -155,7 +155,7 @@ class PackageController extends Controller
         }
 
         $package->color = $request->color;
-        $package->duration = 0;
+        $package->duration = $request->duration ?? 12;
 
 
         $package->save();

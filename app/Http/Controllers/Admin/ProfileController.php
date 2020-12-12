@@ -10,6 +10,9 @@ use App\UserCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic;
+use Carbon\Carbon;
+
+
 
 class ProfileController extends Controller
 {
@@ -130,14 +133,17 @@ class ProfileController extends Controller
     public function boughtCategory(Request $request)
     {
         //
+        $category = Category::find($request->id);
+
         $menu = 'my_category';
-        $userCategory = new UserCategory;
         $user_id = Auth::user()->id;
+        
+        $userCategory = new UserCategory;
         $userCategory->user_id = $user_id;
         $userCategory->category_id = $request->id;
+        $userCategory->start = Carbon::now();
+        $userCategory->end = Carbon::now()->addMonth($category->duration);
         $userCategory->save();
-
-        $category = Category::find($request->id);
 
         $invoice = new Invoice;
 
