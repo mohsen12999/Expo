@@ -44,7 +44,7 @@
               <p>{{$message->description}}</p>
 
               @if ($message->file!='')
-                <a href="{{asset($message->file)}}">{{ __('words.AttachedFile') }}</a>
+                <a href="{{asset($message->file)}}" target = "_blank">{{ __('words.AttachedFile') }}</a>
               @endif
 
             </div>

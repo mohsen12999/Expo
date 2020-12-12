@@ -32,6 +32,9 @@ class CreateExpoCategoriesTable extends Migration
 
             $table->unsignedTinyInteger('status'); // 0 don't show in main page, 1 show in main page
 
+            $table->dateTime('start')->useCurrent();
+            $table->dateTime('end')->nullable();
+
             $table->timestamps();
         });
     }

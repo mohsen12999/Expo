@@ -136,7 +136,7 @@ class HomeController extends Controller
             $menu = 'All Expos';
             $expos = Expo::where('status', 1)->get();
         } else {
-            $category = Category::find($id);
+            $category = ExpoCategory::find($id);
             $menu = 'Expos of ' . $category->title;
             $expos = Expo::where([['status', 1], ['expo_category_id', $id]])->get();
         }

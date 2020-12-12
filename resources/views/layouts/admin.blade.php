@@ -194,13 +194,13 @@ desired effect
                 <a href="{{url('admin\expo')}}"><i class="fa fa-image"></i> <span>{{ __('words.Expos') }}</span></a>
               </li>
               <li class="@if($menu=='categories') active @endif">
-                <a href="{{url('admin\category')}}" ><i class="fa fa-list"></i> <span>{{ __('words.Categories') }}</span></a>
+                <a href="{{url('admin\category')}}" ><i class="fa fa-list"></i> <span>{{ __('words.CategoriesItem') }}</span></a>
               </li>
               <li class="@if($menu=='expo_categories') active @endif">
-                <a href="{{url('admin\expo-category')}}" ><i class="fa fa-list"></i> <span>{{ __('words.ExpoCategories') }}</span></a>
+                <a href="{{url('admin\expo-category')}}" ><i class="fa fa-list"></i> <span>{{ __('words.ExposItem') }}</span></a>
               </li>
               <li class="@if($menu=='packages') active @endif">
-                <a href="{{url('admin\package')}}" ><i class="fa fa-shopping-cart"></i> <span>{{ __('words.Packages') }}</span></a>
+                <a href="{{url('admin\package')}}" ><i class="fa fa-shopping-cart"></i> <span>{{ __('words.CatgoryPackages') }}</span></a>
               </li>
               <li class="@if($menu=='expo_packages') active @endif">
                 <a href="{{url('admin\expo-package')}}" ><i class="fa fa-shopping-cart"></i> <span>{{ __('words.ExpoPackages') }}</span></a>

@@ -261,5 +261,7 @@ return [
     'SearchCompanyPlaceHolder' => 'Type to search in Companies',
     'ExpoPackages' => 'Expo Packages',
     'Duration' => 'Duration',
-    '' => '',
+    'CategoriesItem' => 'Categories Item',
+    'ExposItem' => 'Expos Item',
+    'CatgoryPackages' => 'Catgory Packages',
 ];

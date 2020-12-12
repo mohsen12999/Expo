@@ -146,11 +146,12 @@ class TicketController extends Controller
                     $filename = time() . "_" . $file->getClientOriginalName();
                     $filename = str_replace(" ", "", $filename);
                     $file->move(public_path("/img/tickets/"), $filename);
-                    $message->file = $filename;
+                    $message->file = "/img/tickets/" . $filename;
                 }
             }
 
             $message->ticket_id = $ticket->id;
+            $message->sender_id = $user_id;
             $message->save();
 
             $ticket->status = 2;
