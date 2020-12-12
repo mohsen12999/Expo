@@ -16,4 +16,8 @@ class UserCategory extends Model
     {
         return $this->belongsTo('App\Category');
     }
+    public function package()
+    {
+        return $this->belongsTo('App\Package');
+    }
 }
