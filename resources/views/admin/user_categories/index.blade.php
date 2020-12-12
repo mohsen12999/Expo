@@ -44,8 +44,8 @@
         @foreach ($userCategories as $category)
 
           <tr>
-            <td><img src="{{$category->pic}}" height="75" alt="{{ $category->title }} pic" /></td>
-            <td>{{$category->title}}</td>
+            <td><img src="{{$category->category->pic}}" height="75" alt="{{ $category->category->title }} pic" /></td>
+            <td>{{$category->category->title}}</td>
           </tr>
 
         @endforeach

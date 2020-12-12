@@ -35,8 +35,8 @@
 
       <table class="table table-hover persian-table table-striped table-bordered">
         <tr>
-          <th>{{ __('words.Title') }}</th>
           <th>{{ __('words.Name') }}</th>
+          <th>{{ __('words.Email') }}</th>
           <th>{{ __('words.Description') }}</th>
           <th>{{ __('words.Status') }}</th>
           <th>{{ __('words.Functions') }}</th>
@@ -45,9 +45,9 @@
         @foreach ($comments as $comment)
 
         <tr>
-          <td> {{ $comment->title }} </td>
           <td> {{ $comment->name }} </td>
-          <td> {{ $comment->quote }} </td>
+          <td> {{ $comment->email }} </td>
+          <td> {{ $comment->description }} </td>
           <td> {{ $comment->status==0?__('words.Pending'):__('words.Accepted') }} </td>
 
           <td>
@@ -55,7 +55,7 @@
               <form style="display:inline;" action="{{ url('admin/expo-comment/' . $comment->id) }}" method="post"
                 onsubmit="return confirm('{{ __('words.AcceptCommentMessage') }}');">
                     @csrf
-                    <button class="btn btn-danger" title="{{ __('words.AcceptComment') }}">
+                    <button class="btn btn-success" title="{{ __('words.AcceptComment') }}">
                         <i class="fa fa-trash-o" title="{{ __('words.AcceptComment') }}"></i> {{ __('words.AcceptComment') }}
                     </button>
               </form>
