@@ -18,6 +18,7 @@ class CreateUserCategoriesTable extends Migration
 
             $table->foreignId('category_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_package_id')->nullable()->constrained();
 
             $table->timestamps();
         });
