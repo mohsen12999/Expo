@@ -264,4 +264,6 @@ return [
     'CategoriesItem' => 'Categories Item',
     'ExposItem' => 'Expos Item',
     'CatgoryPackages' => 'Catgory Packages',
+    'ChooseCategory' => 'Choose a Category',
+    '' => ''
 ];

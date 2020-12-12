@@ -255,4 +255,8 @@ return [
     'SearchCompanyPlaceHolder' => 'برای جستجو تایپ کنید',
     'ExpoPackages' => 'پکیج نمایشگاه ها',
     'Duration' => 'مدت زمان',
+    'CategoriesItem' => 'دسته بندی های مربوط به شرکت',
+    'ExposItem' => 'نمایشگاه ها',
+    'CatgoryPackages' => 'بسته های دسته بندی',
+    'ChooseCategory' => 'انتخاب دسته بندی',
 ];
