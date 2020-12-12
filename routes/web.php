@@ -106,9 +106,11 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::post('/admin/profile', 'Admin\ProfileController@store')->name('updateProfile');
 
     Route::get('/admin/user-category', 'Admin\ProfileController@yourCategory')->name('yourCategory');
-    Route::get('/admin/user-category/buy-category', 'Admin\ProfileController@buyCategory')->name('buyCategory');
-    Route::post('/admin/user-category/bank-page', 'Admin\ProfileController@boughtCategoryBank')->name('boughtCategoryBank');
-    Route::post('/admin/user-category/buy-category', 'Admin\ProfileController@boughtCategory')->name('boughtCategory');
+    Route::get('/admin/user-category/choose-package', 'Admin\ProfileController@choosePackage')->name('choosePackage');
+    Route::post('/admin/user-category/choose-category', 'Admin\ProfileController@chooseCategory')->name('chooseCategory');
+    Route::post('/admin/user-category/store', 'Admin\ProfileController@/storeCategory')->name('storeCategory');
+    //Route::post('/admin/user-category/bank-page', 'Admin\ProfileController@boughtCategoryBank')->name('boughtCategoryBank');
+    // Route::post('/admin/user-category/buy-category', 'Admin\ProfileController@boughtCategory')->name('boughtCategory');
 
     Route::post('/admin/booth/choose-package', 'Admin\BoothController@choosePackage')->name('choosePackage');
     Route::post('/admin/booth/choose-expo', 'Admin\BoothController@chooseExpo')->name('chooseExpo');
