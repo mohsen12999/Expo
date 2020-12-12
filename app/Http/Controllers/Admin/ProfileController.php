@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use App\Invoice;
+use App\Package;
 use App\User;
 use App\UserCategory;
+use App\UserPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic;
@@ -113,53 +114,82 @@ class ProfileController extends Controller
         return view('admin.user_categories.index', compact('userCategories', 'menu'));
     }
 
-    public function buyCategory()
+    public function choosePackage(Request $request)
+    {
+        $menu = 'my_category';
+        $user_id = Auth::user()->id;
+        $userPackages = UserPackage::with('package')->where([['user_id', $user_id], ['status', 0]])->get();
+        return view('admin.user_categories.choose_package', compact('userPackages', 'menu'));
+    }
+
+    public function chooseCategory(Request $request)
     {
         //
         $menu = 'my_category';
         $categories = Category::all();
-        return view('admin.user_categories.buy_category', compact('categories', 'menu'));
+        $package_id = $request->id;
+        return view('admin.user_categories.choose_category', compact('categories', 'package_id', 'menu'));
     }
 
-    public function boughtCategoryBank(Request $request)
+    public function storeCategory(Request $request)
     {
-        //
-        $menu = 'my_category';
-        $category = Category::find($request->id);
-        $price = $category->price;
-        return view('admin.user_categories.bank_page', compact('category', 'price', 'menu'));
-    }
-
-    public function boughtCategory(Request $request)
-    {
-        //
-        $category = Category::find($request->id);
-
-        $menu = 'my_category';
         $user_id = Auth::user()->id;
-        
+
+        $userPackages = UserPackage::find($request->package_id);
+        $package = Package::find($userPackages->package_id);
+        $userPackages->start = Carbon::now();
+        $userPackages->end = Carbon::now()->addMonth($package->duration);
+        $userPackages->save();
+
         $userCategory = new UserCategory;
         $userCategory->user_id = $user_id;
         $userCategory->category_id = $request->id;
-        $userCategory->start = Carbon::now();
-        $userCategory->end = Carbon::now()->addMonth($category->duration);
+        $userCategory->package_id = $request->package_id;
         $userCategory->save();
 
-        $invoice = new Invoice;
-
-        $invoice->title = 'Buy Category ' . $category->title;
-        $invoice->description = 'Buy package ' . $category->title . ' with ' . $category->price;
-        $invoice->price = $category->price;
-        $invoice->bankName = 'Test bank';
-        $invoice->bankCode = 'Test bank code';
-
-        $invoice->type = 0;
-        $invoice->status = 0;
-
-        $invoice->user_id = Auth::user()->id;
-
-        $invoice->save();
-
-        return view('admin.user_categories.bought_category', compact('userCategory', 'menu'));
+        return redirect("/admin/user-category")->with('success', 'Information has been added');
     }
+
+    // public function boughtCategoryBank(Request $request)
+    // {
+    //     //
+    //     $menu = 'my_category';
+    //     $category = Category::find($request->id);
+    //     $price = $category->price;
+    //     $user_package = UserPackage::find($request->package_id);
+    //     return view('admin.user_categories.bank_page', compact('category', 'price', 'menu'));
+    // }
+
+    // public function boughtCategory(Request $request)
+    // {
+    //     //
+    //     $category = Category::find($request->id);
+
+    //     $menu = 'my_category';
+    //     $user_id = Auth::user()->id;
+
+    //     $userCategory = new UserCategory;
+    //     $userCategory->user_id = $user_id;
+    //     $userCategory->category_id = $request->id;
+    //     $userCategory->start = Carbon::now();
+    //     $userCategory->end = Carbon::now()->addMonth($category->duration);
+    //     $userCategory->save();
+
+    //     $invoice = new Invoice;
+
+    //     $invoice->title = 'Buy Category ' . $category->title;
+    //     $invoice->description = 'Buy package ' . $category->title . ' with ' . $category->price;
+    //     $invoice->price = $category->price;
+    //     $invoice->bankName = 'Test bank';
+    //     $invoice->bankCode = 'Test bank code';
+
+    //     $invoice->type = 0;
+    //     $invoice->status = 0;
+
+    //     $invoice->user_id = Auth::user()->id;
+
+    //     $invoice->save();
+
+    //     return view('admin.user_categories.bought_category', compact('userCategory', 'menu'));
+    // }
 }
