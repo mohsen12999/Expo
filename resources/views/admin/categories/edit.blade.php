@@ -47,9 +47,9 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="control-label">{{ __('words.Price') }}</label>
-          <input id="price" name="price" class="form-control" value="{{$category->price}}" required/>
-          <span for="price" class="text-danger"></span>
+          <label for="description" class="control-label">{{ __('words.Description') }}</label>
+          <input id="description" name="description" class="form-control" value="{{$category->description}}" required/>
+          <span for="description" class="text-danger"></span>
         </div>
 
         <div class="checkbox">

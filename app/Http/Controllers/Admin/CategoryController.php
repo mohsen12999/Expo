@@ -71,7 +71,7 @@ class CategoryController extends Controller
         }
 
         $category->title = $request->title;
-        $category->description = '';
+        $category->description = $request->description ?? '';
         $category->price = $request->price ?? 0;
         $category->status = $request->status == "on";
 
@@ -137,7 +137,7 @@ class CategoryController extends Controller
         }
 
         $category->title = $request->title ?? "";
-        $category->description = '';
+        $category->description = $request->description ?? '';
         $category->price = $request->price ?? 0;
         $category->status = $request->status == "on";
 

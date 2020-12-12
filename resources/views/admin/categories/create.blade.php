@@ -17,7 +17,7 @@
 
 <div class="col-xs-12">
   <div class="box box-primary">
-      
+
     <div class="box-header with-border">
       <h3 class="box-title">{{ __('words.NewCategory') }}</h3>
     </div>
@@ -75,10 +75,10 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="control-label">{{ __('words.Price') }}</label>
-          <input id="price" name="price" class="form-control" required/>
-          <span for="price" class="text-danger"></span>
-      </div>
+            <label for="description" class="control-label">{{ __('words.Description') }}</label>
+            <input id="description" name="description" class="form-control" required/>
+            <span for="description" class="text-danger"></span>
+        </div>
 
         <div class="checkbox">
           <label>
