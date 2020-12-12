@@ -109,7 +109,7 @@ class ProfileController extends Controller
         //
         $menu = 'my_category';
         $user_id = Auth::user()->id;
-        $userCategories = UserCategory::with('category')->where('user_id', $user_id)->get();
+        $userCategories = UserCategory::with(['category', 'package'])->where('user_id', $user_id)->get();
 
         return view('admin.user_categories.index', compact('userCategories', 'menu'));
     }
