@@ -48,8 +48,8 @@
           <tr>
             <td><img src="{{$category->category->pic}}" height="75" alt="{{ $category->category->title }} pic" /></td>
             <td>{{$category->category->title}}</td>
-            <td>{{$category->package->start}}</td>
-            <td>{{$category->package->end}}</td>
+            <td>{{$category->package؟ $category->package->start:""}}</td>
+            <td>{{$category->package؟ $category->package->end:""}}</td>
           </tr>
 
         @endforeach
