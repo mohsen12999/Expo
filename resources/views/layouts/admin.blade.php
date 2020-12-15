@@ -48,6 +48,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('css/adminlte/skin-blue.min.css') }}" />
 
 
+    <link href="{{ asset('lib/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
     @yield('myheader')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -84,6 +86,7 @@ desired effect
 |---------------------------------------------------------|
 -->
   <body class="hold-transition skin-blue sidebar-mini">
+
     <div class="wrapper">
       <!-- Main Header -->
       <header class="main-header">
@@ -360,6 +363,14 @@ desired effect
     <script src="{{ asset('js/adminlte/bootstrap.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte/adminlte.min.js') }}"></script>
+
+    <script src="{{ asset('lib/toastr/toastr.min.js') }}"></script>
+
+    @if (session()->has('success'))
+      <script>
+        toastr.success('{{ session('success') }}', 'success', {timeOut: 2000})
+      </script>
+    @endif
 
     @yield('myfooter')
 
