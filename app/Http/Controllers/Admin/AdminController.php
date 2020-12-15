@@ -73,8 +73,10 @@ class AdminController extends Controller
         //
         $menu = 'invoices';
         $invoices = Invoice::with('user')->get();
+        $expo_invoices = $invoices->where('type', 1);
+        $cat_invoices = $invoices->where('type', 0);
 
-        return view('admin.invoices', compact('invoices', 'menu'));
+        return view('admin.invoices', compact('invoices', 'menu', 'expo_invoices', 'cat_invoices'));
     }
 
     public function categories()

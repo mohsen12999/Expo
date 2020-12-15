@@ -100,10 +100,11 @@ class UserExpoPackageController extends Controller
         $invoice->bankName = 'Test bank';
         $invoice->bankCode = 'Test bank code';
 
-        $invoice->type = 0;
+        $invoice->type = 1;
         $invoice->status = 0;
 
         $invoice->user_id = Auth::user()->id;
+        $invoice->item_id = $userPackage->id;
 
         $invoice->save();
 

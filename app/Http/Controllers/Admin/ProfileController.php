@@ -147,6 +147,11 @@ class ProfileController extends Controller
         $userCategory->package_id = $request->package_id;
         $userCategory->save();
 
+        $category = Category::find($userCategory->category_id);
+        $userPackages->item_id = $userCategory->id;
+        $userPackages->item_id = $category->title;
+        $userPackages->save();
+
         return redirect("/admin/user-category")->with('success', 'Information has been added');
     }
 

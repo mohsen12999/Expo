@@ -6,6 +6,7 @@ use App\Booth;
 use App\Expo;
 use App\Http\Controllers\Controller;
 use App\Image;
+use App\Invoice;
 use App\Theme;
 use App\UserExpoPackage;
 use Illuminate\Http\Request;
@@ -238,6 +239,11 @@ class BoothController extends Controller
         $userPackage->status = 1;
         $userPackage->booth_id = $booth->id;
         $userPackage->save();
+
+        $expo = Expo::find($booth->expo_id);
+        $invoice = Invoice::find($userPackage->item_id);
+        $invoice->item_name = $expo->title;
+        $invoice->save();
 
         $menu = 'booth';
         $booth_id = $booth->id;

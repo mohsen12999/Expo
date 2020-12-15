@@ -102,6 +102,7 @@ class UserPackageController extends Controller
         $invoice->status = 0;
 
         $invoice->user_id = Auth::user()->id;
+        $invoice->item_id = $userPackage->id;
 
         $invoice->save();
 

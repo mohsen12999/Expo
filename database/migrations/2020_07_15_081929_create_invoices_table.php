@@ -25,8 +25,11 @@ class CreateInvoicesTable extends Migration
             $table->string('bankName');
             $table->string('bankCode');
 
-            $table->unsignedTinyInteger('type');
             $table->unsignedTinyInteger('status');
+            $table->unsignedTinyInteger('type'); // 0->cat, 1=>expo
+
+            $table->string('item_name'); // expo or cat name
+            $table->unsignedInteger('item_id')->nullable(); // expo or cat id
 
             $table->timestamps();
 
