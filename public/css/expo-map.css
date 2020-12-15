@@ -1,180 +1,351 @@
-
-
-.expo-map{
+.expo-map {
     position: relative;
-  }
-  
-  .expo-map img{
+}
+
+.expo-map img {
     width: 100%;
-  }
-  
-  .expo-map .btn{
+}
+
+.expo-map .btn {
     position: absolute;
-  }
-  
-  .expo-map .btn[class*="btn-10"]{
-    left: 17.2%;
+}
+
+.expo-map .btn {
+    width: 3.1%;
+    padding: 7.5px 0;
+}
+
+.expo-map .btn[class*="btn-10"] {
+    left: 18.2%;
     border-width: 3px 1px;
     width: 3.4%;
     padding: 6px 0;
-  }
-  
-  .expo-map .btn.btn-101{
+}
+
+.expo-map .btn.btn-101 {
     bottom: 37.6%;
-  }
-  
-  .expo-map .btn.btn-102{
+}
+
+.expo-map .btn.btn-102 {
     bottom: 42%;
-  }
-  
-  .expo-map .btn.btn-103{
+}
+
+.expo-map .btn.btn-103 {
     bottom: 46.4%;
-  }
-  
-  .expo-map .btn.btn-104{
+}
+
+.expo-map .btn.btn-104 {
     bottom: 50.7%;
-  }
-  
-  .expo-map .btn.btn-105{
+}
+
+.expo-map .btn.btn-105 {
     bottom: 55.1%;
-  }
-  
-  .expo-map .btn.btn-106{
+}
+
+.expo-map .btn.btn-106 {
     bottom: 59.6%;
-  }
-  
-  .expo-map .btn.btn-107{
+}
+
+.expo-map .btn.btn-107 {
     bottom: 64%;
-  }
-  
-  .expo-map .btn.btn-108{
+}
+
+.expo-map .btn.btn-108 {
     bottom: 68.5%;
-  }
-  
-  .expo-map .btn.btn-109{
+}
+
+.expo-map .btn.btn-109 {
     bottom: 73%;
-  }
-  
-  .expo-map .btn.btn-big{
+}
+
+/*.expo-map .btn.btn-big,*/
+.expo-map .btn.btn-201,
+.expo-map .btn.btn-301,
+.expo-map .btn.btn-401,
+.expo-map .btn.btn-227,
+.expo-map .btn.btn-327,
+.expo-map .btn.btn-427 {
     padding-top: 2.1%;
     padding-bottom: 2.1%;
-  }
-  
-  .expo-map .btn.btn-big-bottom{
+}
+
+/*.expo-map .btn.btn-big-bottom,*/
+.expo-map .btn.btn-201,
+.expo-map .btn.btn-227 {
     bottom: 37.6%;
-  }
-  
-  .expo-map .btn.btn-big-middle{
+}
+
+/* .expo-map .btn.btn-big-middle, */
+.expo-map .btn.btn-301,
+.expo-map .btn.btn-327 {
     bottom: 50.7%;
-  }
-  
-  .expo-map .btn.btn-big-top{
+}
+
+/* .expo-map .btn.btn-big-top, */
+.expo-map .btn.btn-401,
+.expo-map .btn.btn-427 {
     bottom: 64%;
-  }
-  
-  .expo-map .btn.btn-big-left{
-    left:23.1%
-  }
-  
-  .expo-map .btn.btn-big-right{
-    right:24.1%
-  }
-  
-  .expo-map .btn.btn-deep-bottom{
+}
+
+/* .expo-map .btn.btn-big-left, */
+.expo-map .btn.btn-201,
+.expo-map .btn.btn-301,
+.expo-map .btn.btn-401 {
+    left: 24.1%;
+}
+
+/* .expo-map .btn.btn-big-right, */
+.expo-map .btn.btn-227,
+.expo-map .btn.btn-327,
+.expo-map .btn.btn-427 {
+    right: 25.1%;
+}
+
+/* .expo-map .btn.btn-deep-bottom, */
+.expo-map .btn.btn-202,
+.expo-map .btn.btn-204,
+.expo-map .btn.btn-206,
+.expo-map .btn.btn-208,
+.expo-map .btn.btn-220,
+.expo-map .btn.btn-222,
+.expo-map .btn.btn-224,
+.expo-map .btn.btn-226 {
     bottom: 25.2%;
     width: 3.1%;
-    padding:9px 0;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-202{
+    padding: 9px 0;
+}
+
+.expo-map .btn.btn-202 {
     left: 27.7%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-204{
+}
+
+.expo-map .btn.btn-204 {
     left: 30.6%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-206{
+}
+
+.expo-map .btn.btn-206 {
     left: 33.7%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-208{
+}
+
+.expo-map .btn.btn-208 {
     left: 36.7%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-220{
+}
+
+.expo-map .btn.btn-220 {
     left: 58%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-222{
+}
+
+.expo-map .btn.btn-222 {
     left: 61%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-224{
+}
+
+.expo-map .btn.btn-224 {
     left: 63.85%;
-  }
-  
-  .expo-map .btn.btn-deep-bottom.btn-226{
+}
+
+.expo-map .btn.btn-226 {
     left: 67%;
     width: 8.1% !important;
-  }
-  
-  .expo-map .btn.btn-middle{
+}
+
+/* .expo-map .btn.btn-middle {
     width: 3.1%;
-    padding:7.5px 0;
-  }
-  .expo-map .btn.btn-middle.row-1-1{
+    padding: 7.5px 0;
+} */
+
+/* .expo-map .btn.btn-middle.row-1-1, */
+.expo-map .btn.btn-504,
+.expo-map .btn.btn-506,
+.expo-map .btn.btn-508,
+.expo-map .btn.btn-510,
+.expo-map .btn.btn-512,
+.expo-map .btn.btn-514,
+.expo-map .btn.btn-516,
+.expo-map .btn.btn-518,
+.expo-map .btn.btn-520,
+.expo-map .btn.btn-522,
+.expo-map .btn.btn-524,
+.expo-map .btn.btn-526 {
     bottom: 68.6%;
-  }
-  .expo-map .btn.btn-middle.row-1-2{
+}
+
+/* .expo-map .btn.btn-middle.row-1-2, */
+.expo-map .btn.btn-403,
+.expo-map .btn.btn-405,
+.expo-map .btn.btn-407,
+.expo-map .btn.btn-409,
+.expo-map .btn.btn-411,
+.expo-map .btn.btn-413,
+.expo-map .btn.btn-415,
+.expo-map .btn.btn-417,
+.expo-map .btn.btn-423,
+.expo-map .btn.btn-425 {
     bottom: 64.1%;
-  }
-  .expo-map .btn.btn-middle.row-2-1{
+}
+
+/* .expo-map .btn.btn-middle.row-2-1, */
+.expo-map .btn.btn-404,
+.expo-map .btn.btn-406,
+.expo-map .btn.btn-408,
+.expo-map .btn.btn-410,
+.expo-map .btn.btn-412,
+.expo-map .btn.btn-414,
+.expo-map .btn.btn-416,
+.expo-map .btn.btn-418,
+.expo-map .btn.btn-420,
+.expo-map .btn.btn-422,
+.expo-map .btn.btn-424,
+.expo-map .btn.btn-426 {
     bottom: 55.3%;
-  }
-  .expo-map .btn.btn-middle.row-2-2{
+}
+
+/* .expo-map .btn.btn-middle.row-2-2, */
+.expo-map .btn.btn-303,
+.expo-map .btn.btn-305,
+.expo-map .btn.btn-307,
+.expo-map .btn.btn-309,
+.expo-map .btn.btn-311,
+.expo-map .btn.btn-313,
+.expo-map .btn.btn-315,
+.expo-map .btn.btn-317,
+.expo-map .btn.btn-319,
+.expo-map .btn.btn-321,
+.expo-map .btn.btn-323,
+.expo-map .btn.btn-325 {
     bottom: 50.8%;
-  }
-  .expo-map .btn.btn-middle.row-3-1{
+}
+
+/* .expo-map .btn.btn-middle.row-3-1, */
+.expo-map .btn.btn-304,
+.expo-map .btn.btn-306,
+.expo-map .btn.btn-308,
+.expo-map .btn.btn-310,
+.expo-map .btn.btn-312,
+.expo-map .btn.btn-318,
+.expo-map .btn.btn-322,
+.expo-map .btn.btn-324,
+.expo-map .btn.btn-326 {
     bottom: 42%;
-  }
-  .expo-map .btn.btn-middle.row-3-2{
+}
+
+/* .expo-map .btn.btn-middle.row-3-2, */
+.expo-map .btn.btn-203,
+.expo-map .btn.btn-205,
+.expo-map .btn.btn-207,
+.expo-map .btn.btn-209,
+.expo-map .btn.btn-219,
+.expo-map .btn.btn-221,
+.expo-map .btn.btn-223,
+.expo-map .btn.btn-225 {
     bottom: 37.59%;
-  }
-  
-  .expo-map .btn.btn-middle.col-1-1{
+}
+
+/* .expo-map .btn.btn-middle.col-1-1, */
+.expo-map .btn.btn-504,
+.expo-map .btn.btn-403,
+.expo-map .btn.btn-404,
+.expo-map .btn.btn-303,
+.expo-map .btn.btn-304,
+.expo-map .btn.btn-203 {
     left: 28.5%;
-  }
-  .expo-map .btn.btn-middle.col-1-2{
+}
+
+/* .expo-map .btn.btn-middle.col-1-2, */
+.expo-map .btn.btn-506,
+.expo-map .btn.btn-405,
+.expo-map .btn.btn-406,
+.expo-map .btn.btn-305,
+.expo-map .btn.btn-306,
+.expo-map .btn.btn-205 {
     left: 31.5%;
-  }
-  .expo-map .btn.btn-middle.col-1-3{
+}
+
+/* .expo-map .btn.btn-middle.col-1-3, */
+.expo-map .btn.btn-508,
+.expo-map .btn.btn-407,
+.expo-map .btn.btn-408,
+.expo-map .btn.btn-307,
+.expo-map .btn.btn-308,
+.expo-map .btn.btn-207 {
     left: 34.35%;
-  }
-  .expo-map .btn.btn-middle.col-2-1{
+}
+
+/* .expo-map .btn.btn-middle.col-2-1, */
+.expo-map .btn.btn-510,
+.expo-map .btn.btn-409,
+.expo-map .btn.btn-410,
+.expo-map .btn.btn-309,
+.expo-map .btn.btn-310,
+.expo-map .btn.btn-209 {
     left: 39.4%;
-  }
-  .expo-map .btn.btn-middle.col-2-2{
+}
+
+/* .expo-map .btn.btn-middle.col-2-2, */
+.expo-map .btn.btn-512,
+.expo-map .btn.btn-411,
+.expo-map .btn.btn-412,
+.expo-map .btn.btn-311,
+.expo-map .btn.btn-312 {
     left: 42.3%;
-  }
-  .expo-map .btn.btn-middle.col-2-3{
+}
+/* .expo-map .btn.btn-middle.col-2-3, */
+.expo-map .btn.btn-514,
+.expo-map .btn.btn-413,
+.expo-map .btn.btn-414,
+.expo-map .btn.btn-313,
+.expo-map .btn.btn-318 {
     left: 45.3%;
-  }
-  .expo-map .btn.btn-middle.col-3-1{
+}
+
+/* .expo-map .btn.btn-middle.col-3-1, */
+.expo-map .btn.btn-516,
+.expo-map .btn.btn-415,
+.expo-map .btn.btn-416,
+.expo-map .btn.btn-315 {
     left: 50.3%;
-  }
-  .expo-map .btn.btn-middle.col-3-2{
+}
+
+/* .expo-map .btn.btn-middle.col-3-2, */
+.expo-map .btn.btn-518,
+.expo-map .btn.btn-417,
+.expo-map .btn.btn-418,
+.expo-map .btn.btn-317 {
     left: 53.4%;
-  }
-  .expo-map .btn.btn-middle.col-3-3{
+}
+
+/* .expo-map .btn.btn-middle.col-3-3, */
+.expo-map .btn.btn-520,
+.expo-map .btn.btn-420,
+.expo-map .btn.btn-319,
+.expo-map .btn.btn-219 {
     left: 56.2%;
-  }
-  .expo-map .btn.btn-middle.col-4-1{
+}
+
+/* .expo-map .btn.btn-middle.col-4-1, */
+.expo-map .btn.btn-522,
+.expo-map .btn.btn-422,
+.expo-map .btn.btn-321,
+.expo-map .btn.btn-322,
+.expo-map .btn.btn-221 {
     left: 61.15%;
-  }
-  .expo-map .btn.btn-middle.col-4-2{
+}
+
+/* .expo-map .btn.btn-middle.col-4-2, */
+.expo-map .btn.btn-524,
+.expo-map .btn.btn-423,
+.expo-map .btn.btn-424,
+.expo-map .btn.btn-323,
+.expo-map .btn.btn-324,
+.expo-map .btn.btn-223 {
     left: 64.15%;
-  }
-  .expo-map .btn.btn-middle.col-4-3{
+}
+
+/* .expo-map .btn.btn-middle.col-4-3, */
+.expo-map .btn.btn-526,
+.expo-map .btn.btn-425,
+.expo-map .btn.btn-426,
+.expo-map .btn.btn-325,
+.expo-map .btn.btn-326,
+.expo-map .btn.btn-225 {
     left: 67.1%;
-  }
+}
