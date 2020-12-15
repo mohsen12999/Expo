@@ -158,7 +158,7 @@ class BoothController extends Controller
                 if ($file_size) {
                     $filename = time() . "_" . $file->getClientOriginalName();
                     $filename = str_replace(" ", "", $filename);
-                    $file->move(public_path("/img/booths/video/"), $filename);
+                    $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
                     $booth->video = "/img/booths/video/" . $filename;
                 }
             }
@@ -189,7 +189,7 @@ class BoothController extends Controller
             if ($file_page_count) {
                 $filename = time() . "_" . $file->getClientOriginalName();
                 $filename = str_replace(" ", "", $filename);
-                $file->move(public_path("/img/booths/catalog/"), $filename);
+                $file->move(str_replace("index/public/img", "img", public_path("/img/booths/catalog/")), $filename);
                 $booth->catalog = "/img/booths/catalog/" . $filename;
             }
         }
@@ -357,7 +357,7 @@ class BoothController extends Controller
                 if ($file_size) {
                     $filename = time() . "_" . $file->getClientOriginalName();
                     $filename = str_replace(" ", "", $filename);
-                    $file->move(public_path("/img/booths/video/"), $filename);
+                    $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
 
                     if ($booth->video != '' && $booth->video != null && file_exists(public_path($booth->video))) {
                         unlink(public_path($booth->video));
@@ -390,7 +390,7 @@ class BoothController extends Controller
             if ($file_page_count) {
                 $filename = time() . "_" . $file->getClientOriginalName();
                 $filename = str_replace(" ", "", $filename);
-                $file->move(public_path("/img/booths/catalog/"), $filename);
+                $file->move(str_replace("index/public/img", "img", public_path("/img/booths/catalog/")), $filename);
 
                 if ($booth->catalog != '' && $booth->catalog != null && file_exists(public_path($booth->catalog))) {
                     unlink(public_path($booth->catalog));

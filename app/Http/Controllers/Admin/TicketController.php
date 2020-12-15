@@ -78,7 +78,7 @@ class TicketController extends Controller
             if ($file_type_kind == 'video' || $file_type_kind = "image" || $file_type_kind = 'application' || $file_type_kind = 'text') {
                 $filename = time() . "_" . $file->getClientOriginalName();
                 $filename = str_replace(" ", "", $filename);
-                $file->move(public_path("/img/tickets/"), $filename);
+                $file->move(str_replace("index/public/img", "img", public_path("/img/tickets/")), $filename);
                 $message->file = $filename;
             }
         }
@@ -145,7 +145,7 @@ class TicketController extends Controller
                 if ($file_type_kind == 'video' || $file_type_kind = "image" || $file_type_kind = 'application' || $file_type_kind = 'text') {
                     $filename = time() . "_" . $file->getClientOriginalName();
                     $filename = str_replace(" ", "", $filename);
-                    $file->move(public_path("/img/tickets/"), $filename);
+                    $file->move(str_replace("index/public/img", "img", public_path("/img/tickets/")), $filename);
                     $message->file = "/img/tickets/" . $filename;
                 }
             }

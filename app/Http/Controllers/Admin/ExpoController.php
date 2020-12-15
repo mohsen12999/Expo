@@ -82,7 +82,7 @@ class ExpoController extends Controller
             $file = $request->file('video');
             $filename = "video_" . time() . "_" . $file->getClientOriginalName();
             $filename = str_replace(" ", "", $filename);
-            $file->move(public_path("/img/expos/"), $filename);
+            $file->move(str_replace("index/public/img", "img", public_path("/img/expos/")), $filename);
             $expo->video = "/img/expos/" . $filename;
         }
 
@@ -152,7 +152,7 @@ class ExpoController extends Controller
             $file = $request->file('video');
             $filename = "video_" . time() . "_" . $file->getClientOriginalName();
             $filename = str_replace(" ", "", $filename);
-            $file->move(public_path("/img/expos/"), $filename);
+            $file->move(str_replace("index/public/img", "img", public_path("/img/expos/")), $filename);
             if ($expo->video != '' && file_exists(public_path($expo->video))) {
                 unlink(public_path($expo->video));
             }
