@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Invoice;
 use App\Package;
 use App\User;
 use App\UserCategory;
@@ -109,7 +110,7 @@ class ProfileController extends Controller
         //
         $menu = 'my_category';
         $user_id = Auth::user()->id;
-        $userCategories = UserCategory::with(['category', 'package'])->where('user_id', $user_id)->get();
+        $userCategories = UserCategory::with(['category', 'userPackage'])->where('user_id', $user_id)->get();
 
         return view('admin.user_categories.index', compact('userCategories', 'menu'));
     }
@@ -135,22 +136,29 @@ class ProfileController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        $userPackages = UserPackage::find($request->package_id);
-        $package = Package::find($userPackages->package_id);
-        $userPackages->start = Carbon::now();
-        $userPackages->end = Carbon::now()->addMonth($package->duration);
-        $userPackages->save();
+
+        $userPackage = UserPackage::find($request->package_id);
+        $package = Package::find($userPackage->package_id);
+
+        $userPackage->start = Carbon::now();
+        $lastSamePackage = UserCategory::with('userPackage')->where('category_id', 1)->orderBy('id', 'desc')->first();
+        if ($lastSamePackage && $lastSamePackage->userPackage->end->gt(Carbon::now())) {
+            $userPackage->start = $lastSamePackage->userPackage->end;
+        }
+        $userPackage->end = $userPackage->start->addMonth($package->duration);
+        $userPackage->save();
 
         $userCategory = new UserCategory;
         $userCategory->user_id = $user_id;
         $userCategory->category_id = $request->id;
-        $userCategory->package_id = $request->package_id;
+        $userCategory->user_package_id = $request->package_id;
         $userCategory->save();
 
         $category = Category::find($userCategory->category_id);
-        $userPackages->item_id = $userCategory->id;
-        $userPackages->item_id = $category->title;
-        $userPackages->save();
+        $invoice = Invoice::find($userPackage->invoice_id);
+        $invoice->item_name = $category->title;
+        $invoice->save();
+
 
         return redirect("/admin/user-category")->with('success', 'Information has been added');
     }
