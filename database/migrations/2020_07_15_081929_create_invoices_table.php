@@ -28,7 +28,7 @@ class CreateInvoicesTable extends Migration
             $table->unsignedTinyInteger('status');
             $table->unsignedTinyInteger('type'); // 0->cat, 1=>expo
 
-            $table->string('item_name'); // expo or cat name
+            $table->string('item_name')->default(""); // expo or cat name
             $table->unsignedInteger('item_id')->nullable(); // expo or cat id
 
             $table->timestamps();
