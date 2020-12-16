@@ -148,7 +148,7 @@ class HomeController extends Controller
     {
         $menu = 'expo';
         $expo = Expo::find($id);
-        $booths = Booth::with('user')->where('expo_id', $id)->get();
+        $booths = Booth::with('user')->where([['expo_id', $id], ['confirm', 1]])->get();
         $comments = ExpoComment::where([['status', '1'], ['expo_id', $id]])->get();
         $images = ExpoImage::where([['status', '1'], ['expo_id', $id]])->get();
 
@@ -162,12 +162,12 @@ class HomeController extends Controller
         }
         $visit_count->save();
 
-        $booth_numbers = ["101","102","103","104","105","106","107","108","109","201","301","401","227","327","427","202","204","206","208","220","222","224","224","226","504","506","508","510","512","514","516","518","520","522","524","526","403","405","407","409","411","413","415","417","423","425","404","406","408","410","412","414","416","418","420","422","424","426","303","305","307","309","311","313","315","317","319","319","321","323","325","304","306","308","310","312","318","322","324","326","203","205","207","209","219","221","223","225"];
+        $booth_numbers = ["101", "102", "103", "104", "105", "106", "107", "108", "109", "201", "301", "401", "227", "327", "427", "202", "204", "206", "208", "220", "222", "224", "224", "226", "504", "506", "508", "510", "512", "514", "516", "518", "520", "522", "524", "526", "403", "405", "407", "409", "411", "413", "415", "417", "423", "425", "404", "406", "408", "410", "412", "414", "416", "418", "420", "422", "424", "426", "303", "305", "307", "309", "311", "313", "315", "317", "319", "319", "321", "323", "325", "304", "306", "308", "310", "312", "318", "322", "324", "326", "203", "205", "207", "209", "219", "221", "223", "225"];
         // $map_ids_collection = Booth::where('expo_id', $id)->select('booth_map_id')->get()->toArray();
         // $map_ids = array_column($map_ids_collection, 'booth_map_id');
         $booths_array = $booths->toArray();
 
-        return view('home.expo', compact('booths', 'comments', 'images', 'expo', 'menu','booth_numbers', 'booths_array'));
+        return view('home.expo', compact('booths', 'comments', 'images', 'expo', 'menu', 'booth_numbers', 'booths_array'));
     }
 
     public function expoMap($id, $map_id)
@@ -197,7 +197,7 @@ class HomeController extends Controller
         $menu = 'expo';
         $booth = Booth::with(['user', 'images'])->find($id);
         $theme = Theme::find($booth->theme_id);
-        $booths = Booth::with('user')->where('expo_id', $booth->expo_id)->get();
+        $booths = Booth::with('user')->where([['expo_id', $booth->expo_id], ['confirm', 1]])->get();
 
         $booth->visits = $booth->visits + 1;
         $booth->save();
