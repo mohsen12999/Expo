@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserPackage extends Model
 {
     //
+    protected $dates = [
+        'start', 'end',
+    ];
 
     public function user()
     {
