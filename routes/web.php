@@ -114,7 +114,7 @@ Route::group(['middleware' => 'setlocale'], function () {
 
     Route::post('/admin/booth/choose-package', 'Admin\BoothController@choosePackage')->name('choosePackage');
     Route::post('/admin/booth/choose-expo', 'Admin\BoothController@chooseExpo')->name('chooseExpo');
-    Route::post('/admin/booth/booth-location/{id}', 'Admin\BoothController@booth_location')->name('chooseExpo');
+    Route::post('/admin/booth/booth-location/{map_id}', 'Admin\BoothController@booth_location')->name('chooseExpo');
     Route::delete('admin/booth/image/{image}', 'Admin\BoothController@deleteBoothImage')->name('deleteBoothImage');
 
     Route::get('/admin/user-package', 'Admin\UserPackageController@yourPackage')->name('yourPackage');
