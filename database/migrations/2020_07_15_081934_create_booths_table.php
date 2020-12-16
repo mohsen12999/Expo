@@ -47,6 +47,8 @@ class CreateBoothsTable extends Migration
             $table->foreignId('user_package_id')->nullable()->constrained();
             $table->foreignId('expo_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
+
+            $table->unsignedTinyInteger('confirm')->default(0);
         });
     }
 
