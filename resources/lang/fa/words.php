@@ -259,4 +259,12 @@ return [
     'ExposItem' => 'نمایشگاه ها',
     'CatgoryPackages' => 'بسته های دسته بندی',
     'ChooseCategory' => 'انتخاب دسته بندی',
+    'ExpoAdmin' => 'مدیریت نمایشگاه',
+    'Confirmed' => 'تائید شده',
+    'AcceptExpo' => 'تائید نمایشگاه',
+    'AcceptExpoMessage' => 'از تائید نمایشگاه اطمینان دارید؟',
+    'Tickets' => 'تیکت ها',
+    'TicketsList' => 'لیست تیکت هاt',
+    'BoothNumber' => 'شماره غرفه',
+    'ChangeLocation' => 'تغییر مکان',
 ];

@@ -265,5 +265,13 @@ return [
     'ExposItem' => 'Expos Item',
     'CatgoryPackages' => 'Catgory Packages',
     'ChooseCategory' => 'Choose a Category',
-    '' => ''
+    'ExpoAdmin' => 'Expo Admin',
+    'Confirmed' => 'Confirmed',
+    'AcceptExpo' => 'Accept Expo',
+    'AcceptExpoMessage' => 'Are you sure about Accept Expo?',
+    'Tickets' => 'Tickets',
+    'TicketsList' => 'Tickets List',
+    'BoothNumber' => 'Booth Number',
+    'ChangeLocation' => 'Change Location',
+    '' => '',
 ];
