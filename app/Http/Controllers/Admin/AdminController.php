@@ -41,8 +41,9 @@ class AdminController extends Controller
         $package_count = Package::count();
         $User_count = User::count();
         $invoice_count = Invoice::count();
+        $ticket_count = Ticket::count();
 
-        return view('admin.admin', compact('expo_count', 'category_count', 'package_count', 'User_count', 'invoice_count', 'menu'));
+        return view('admin.admin', compact('expo_count', 'category_count', 'package_count', 'User_count', 'invoice_count', 'ticket_count', 'menu'));
     }
 
     public function users()
@@ -65,7 +66,7 @@ class AdminController extends Controller
         }
 
         $user->delete();
-        return redirect('admin\users')->with('success', 'Information has been Removed');
+        return redirect('admin\users')->with('success', 'User has been Removed');
     }
 
     public function invoices()
@@ -94,6 +95,15 @@ class AdminController extends Controller
         $tickets = Ticket::orderBy('id', 'desc')->get();
 
         return view('admin.tickets.tickets', compact('tickets', 'menu'));
+    }
+
+    public function closeTicket(Request $request, $id)
+    {
+        $ticket = Ticket::find($id);
+        $ticket->status = 3; // close ticket
+        $ticket->save();
+
+        return redirect('admin\tickets')->with('success', 'Ticket Closed');
     }
 
     public function answerTicket($id)
@@ -145,7 +155,7 @@ class AdminController extends Controller
         $ticket->status = 1;
         $ticket->save();
 
-        return redirect('admin\tickets')->with('success', 'Information has been saved');
+        return redirect('admin\tickets')->with('success', 'Ticket has been saved');
     }
 
     public function counter()
