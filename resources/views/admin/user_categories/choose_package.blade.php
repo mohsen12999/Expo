@@ -7,7 +7,7 @@
 
 @section('content')
 <section>
-    <h1>{{ __('words.ChoosePackage') }}</h1>
+  <h1>{{ __('words.ChoosePackage') }}</h1>
 </section>
 
 <section class="content container-fluid">
@@ -15,38 +15,39 @@
 | Your Page Content Here |
 -------------------------->
 
-<div class="col-xs-12">
-  <div class="box">
+  <div class="col-xs-12">
+    <div class="box">
 
-    <!-- box-header -->
-    <div class="box-header">
-      <h3 class="box-title">{{ __('words.YourPackageList') }}</h3>
-    </div>
-    <!-- /.box-header -->
+      <!-- box-header -->
+      <div class="box-header">
+        <h3 class="box-title">{{ __('words.YourPackageList') }}</h3>
+      </div>
+      <!-- /.box-header -->
 
-    @if(count($userPackages) === 0)
+      @if(count($userPackages) === 0)
 
       <div class="no-data">
         <h3>{{ __('words.NoPackageMessage') }}</h3>
-        <a href="{{url('admin/user-package/buy-package')}}" class="btn btn-primary" style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyPackage') }}</a>
+        <a href="{{url('admin/user-package/buy-package')}}" class="btn btn-primary" style="margin-left: 1em;"><i
+            class="fa fa-plus"></i> {{ __('words.BuyPackage') }}</a>
       </div>
 
-    @else
+      @else
 
-    <form role="form" method="post"  action="{{ url('admin/booth/choose-package') }}">
-      @csrf
+      <form role="form" method="post" action="{{ url('/admin/user-category/choose-category') }}">
+        @csrf
 
-      <div class="box-body">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="box-body">
+          <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="row radio-list">
+          <div class="row radio-list">
 
-          @foreach ($userPackages as $userPackage)
+            @foreach ($userPackages as $userPackage)
 
             <div class="col-md-4 col-xs-12">
               <div class="radio with-img">
                 <label>
-                  <input id="id" name="id" type="radio" value="{{$userPackage->id}}" required/>
+                  <input id="id" name="id" type="radio" value="{{$userPackage->id}}" required />
                   <div>
                     <div class="card package-card" style="background-color: {{$userPackage->package->color}}">
                       <div class="card-header">
@@ -55,14 +56,16 @@
                         </div>
                         <div class="header-info">
                           <h3 class="package-name">{{$userPackage->package->title}}</h3>
-                          <h1 class="package-price"><span class="price">${{number_format($userPackage->package->price,0)}}</span><span class="duration">/Monthly</span></h1>
+                          <h1 class="package-price"><span
+                              class="price">${{number_format($userPackage->package->price,0)}}</span><span
+                              class="duration">/Monthly</span></h1>
 
                         </div>
                       </div>
 
                       <div class="card-body">
                         <h3 class="card-title">{{__('words.Benefits')}}</h3>
-                          {!! $userPackage->package->description !!}
+                        {!! $userPackage->package->description !!}
                       </div>
                     </div>
                   </div>
@@ -71,25 +74,25 @@
               </div>
             </div>
 
-          @endforeach
+            @endforeach
+
+          </div>
+
+
 
         </div>
 
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ __('words.Next') }}</button>
+        </div>
 
+      </form>
 
-      </div>
+      @endif
 
-      <!-- /.box-body -->
-      <div class="box-footer">
-        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ __('words.Next') }}</button>
-      </div>
-
-    </form>
-
-    @endif
-
+    </div>
   </div>
-</div>
 
 </section>
 

@@ -7,7 +7,7 @@
 
 @section('content')
 <section>
-    <h1>{{ __('words.YourCategory') }}</h1>
+  <h1>{{ __('words.YourCategory') }}</h1>
 </section>
 
 <section class="content container-fluid">
@@ -15,53 +15,55 @@
 | Your Page Content Here |
 -------------------------->
 
-<div class="col-xs-12">
-  <div class="box">
+  <div class="col-xs-12">
+    <div class="box">
 
-    <!-- box-header -->
-    <div class="box-header">
-      <h3 class="box-title">{{ __('words.YourCategory') }}</h3>
-      <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary pull-right" style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
-    </div>
-    <!-- /.box-header -->
+      <!-- box-header -->
+      <div class="box-header">
+        <h3 class="box-title">{{ __('words.YourCategory') }}</h3>
+        <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary pull-right"
+          style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
+      </div>
+      <!-- /.box-header -->
 
 
-    <div class="box-body table-responsive no-padding">
+      <div class="box-body table-responsive no-padding">
 
-      @if (count($userCategories) === 0)
+        @if (count($userCategories) === 0)
         <div class="no-data">
           <h3>{{ __('words.NoPackageMessage') }}</h3>
-          <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary" style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
+          <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary" style="margin-left: 1em;"><i
+              class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
         </div>
-      @else
+        @else
 
-      <table class="table table-hover persian-table table-striped table-bordered">
-        <tr>
-          <th>{{ __('words.Pic') }}</th>
-          <th>{{ __('words.Title') }}</th>
-          <th>{{ __('words.StartTime') }}</th>
-          <th>{{ __('words.EndTime') }}</th>
-        </tr>
+        <table class="table table-hover persian-table table-striped table-bordered">
+          <tr>
+            <th>{{ __('words.Pic') }}</th>
+            <th>{{ __('words.Title') }}</th>
+            <th>{{ __('words.StartTime') }}</th>
+            <th>{{ __('words.EndTime') }}</th>
+          </tr>
 
-        @foreach ($userCategories as $category)
+          @foreach ($userCategories as $category)
 
           <tr>
             <td><img src="{{$category->category->pic}}" height="75" alt="{{ $category->category->title }} pic" /></td>
             <td>{{$category->category->title}}</td>
-            <td>{{$category->package؟ $category->package->start:""}}</td>
-            <td>{{$category->package؟ $category->package->end:""}}</td>
+            <td>{{$category->userPackage? $category->userPackage->start:""}}</td>
+            <td>{{$category->userPackage? $category->userPackage->end:""}}</td>
           </tr>
 
-        @endforeach
+          @endforeach
 
-      </table>
+        </table>
 
-      @endif
+        @endif
+
+      </div>
 
     </div>
-
   </div>
-</div>
 
 </section>
 
