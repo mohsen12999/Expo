@@ -29,6 +29,17 @@
                         @if ($expo->video && $expo->video!='')
                             <a href="{{ asset($expo->video) }}" target="_blank"><img src="{{ asset('/img/video.png')}}" style="width: 50px" alt=""></a>
                         @endif
+                        @if ($expo->expoImages)
+                            <div class="row">
+                                @foreach ($expo->expoImages as $expoImage)
+                                    <div class="col-md-3 col-xs-6">
+                                        <a href="{{url($expoImage->path)}}" target="_blank">
+                                            <img src="{{url($expoImage->path)}}" style="max-width: 100%">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                         <p> {{$expo->start->format('Y-m-d')}} - {{$expo->end->format('Y-m-d')}}</p>
                     </div>
                 </div>
