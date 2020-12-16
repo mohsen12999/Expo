@@ -57,6 +57,7 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/admin/invoices', 'Admin\AdminController@invoices')->name('allInvoices');
     // Route::get('/admin/categories', 'Admin\CategoryController@index')->name('categoryList');
     Route::get('/admin/tickets', 'Admin\AdminController@tickets')->name('tickets');
+    Route::delete('/admin/tickets/{id}', 'Admin\AdminController@closeTicket')->name('closeTicket');
     Route::get('/admin/answer-ticket/{id}', 'Admin\AdminController@answerTicket')->name('answerTicket');
     Route::post('/admin/answer-ticket/{id}', 'Admin\AdminController@answeringTicket')->name('answeringTicket');
 
@@ -101,6 +102,11 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::post('admin/expo-image/{id}', 'Admin\ExpoController@addImage')->name('addImage');
     Route::delete('admin/expo-image/{id}', 'Admin\ExpoController@deleteImage')->name('deleteImage');
 
+    Route::get('admin/expo-admin/{id}', 'Admin\ExpoController@expoAdmin')->name('expoAdmin');
+    Route::post('admin/expo-admin/{id}', 'Admin\ExpoController@boothConfirm')->name('boothConfirm');
+    Route::get('admin/expo-admin/booth_location/{id}', 'Admin\ExpoController@changeBoothLoaction')->name('changeBoothLoaction');
+    Route::post('admin/expo-admin/booth_location/{id}', 'Admin\ExpoController@changingBoothLoaction')->name('changingBoothLoaction');
+
     //-- Exhibitor
     Route::get('/admin/profile', 'Admin\ProfileController@index')->name('Profile');
     Route::post('/admin/profile', 'Admin\ProfileController@store')->name('updateProfile');
@@ -108,7 +114,7 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/admin/user-category', 'Admin\ProfileController@yourCategory')->name('yourCategory');
     Route::get('/admin/user-category/choose-package', 'Admin\ProfileController@choosePackage')->name('choosePackage');
     Route::post('/admin/user-category/choose-category', 'Admin\ProfileController@chooseCategory')->name('chooseCategory');
-    Route::post('/admin/user-category/store', 'Admin\ProfileController@/storeCategory')->name('storeCategory');
+    Route::post('/admin/user-category/store', 'Admin\ProfileController@storeCategory')->name('storeCategory');
     //Route::post('/admin/user-category/bank-page', 'Admin\ProfileController@boughtCategoryBank')->name('boughtCategoryBank');
     // Route::post('/admin/user-category/buy-category', 'Admin\ProfileController@boughtCategory')->name('boughtCategory');
 
