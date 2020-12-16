@@ -28,7 +28,7 @@
       <div class="box-body">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="nav-tabs-custom" style="direction: rtl;">
+        {{-- <div class="nav-tabs-custom" style="direction: rtl;">
           <ul class="nav nav-tabs nav-fill nav-justified ui-sortable-handle">
             <li class="active">
                 <a id="pending-users-tab" href="#english-tab" data-toggle="tab"
@@ -57,7 +57,7 @@
             <div class="chart tab-pane active" id="russian-tab"></div>
             <div class="chart tab-pane active" id="armenian-tab"></div>
           </div>
-        </div>
+        </div> --}}
 
         <div class="form-group">
             <label for="Name" class="control-label">{{ __('words.Pic') }}</label>
