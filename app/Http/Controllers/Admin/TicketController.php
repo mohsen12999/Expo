@@ -174,6 +174,6 @@ class TicketController extends Controller
         $ticket->status = 3; // close ticket
         $ticket->save();
 
-        return redirect('admin\ticket')->with('success', 'Information has been added');
+        return redirect('admin\ticket')->with('success', 'Ticket Closed');
     }
 }
