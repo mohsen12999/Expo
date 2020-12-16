@@ -18,7 +18,14 @@
                 <img src="{{asset("/img/expo-map.jpg")}}" style="width: 100%" alt="expo-map"/>
 
                 @foreach ($booth_numbers as $booth_number)
-                    <a @if (!in_array($booth_number, $map_ids)) href="#" @else href="{{url('/map/'.$expo->id.'/'.$booth_number)}}" @endif class="btn @if (!in_array($booth_number, $map_ids)) btn-secondary @else btn-primary @endif btn-{{$booth_number}}">{{$booth_number}}</a>
+                    @if (in_array($booth_number,array_column($booths_array,'booth_map_id')))
+                        @php
+                            $this_booth = $booths->where("booth_map_id","=",$booth_number)->first();
+                        @endphp
+                    <a href="{{url('/map/'.$expo->id.'/'.$booth_number)}}" class="btn btn-primary btn-{{$booth_number}}" title="{{$this_booth->user->name}}">{{$booth_number}}</a>
+                    @else
+                        <a href="#" class="btn btn-secondary btn-{{$booth_number}}" title="Empty Booth">{{$booth_number}}</a>
+                    @endif
                 @endforeach
 
             </div>
