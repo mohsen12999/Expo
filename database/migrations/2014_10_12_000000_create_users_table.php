@@ -15,22 +15,22 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->string('avatar')->default("");
-            $table->string('color')->default("");
-            $table->string('theme')->default("");
+            $table->string('avatar')->nullable();
+            $table->string('color')->nullable();
+            $table->string('theme')->nullable();
 
-            $table->string('address')->default("");
-            $table->string('mobile')->default("");
-            $table->string('tel')->default("");
-            $table->string('country')->default("");
-            $table->string('website')->default("");
+            $table->string('address')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('country')->nullable();
+            $table->string('website')->nullable();
 
             $table->string('presenter')->nullable();
             $table->unsignedBigInteger('presenter_id')->nullable();
