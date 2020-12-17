@@ -267,4 +267,11 @@ return [
     'TicketsList' => 'لیست تیکت هاt',
     'BoothNumber' => 'شماره غرفه',
     'ChangeLocation' => 'تغییر مکان',
+    'CategoryInvoices' => 'فاکتورهای کتگوری',
+    'ExpoInvoices' => 'فاکتورهای نمایشگاه',
+    'OpenTicket' => 'تیکت‌های باز',
+    'ClosedTicket' => 'تیکت های بسته',
+    'YourCategoryPackage' => 'کنگوری های شما',
+    'YourExpoPackage' => 'نمایشگاه شما',
+    'MyBoothPackage' => 'پکیج غرفه شما',
 ];

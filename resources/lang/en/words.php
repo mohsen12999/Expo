@@ -273,5 +273,12 @@ return [
     'TicketsList' => 'Tickets List',
     'BoothNumber' => 'Booth Number',
     'ChangeLocation' => 'Change Location',
+    'CategoryInvoices' => 'Category Invoices',
+    'ExpoInvoices' => 'Expo Invoices',
+    'OpenTicket' => 'Open Ticket',
+    'ClosedTicket' => 'Closed Ticket',
+    'YourCategoryPackage' => 'Your Category Package',
+    'YourExpoPackage' => 'Your Expo Package',
+    'MyBoothPackage' => 'My Booth Package',
     '' => '',
 ];
