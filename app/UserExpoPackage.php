@@ -21,9 +21,9 @@ class UserExpoPackage extends Model
         return $this->belongsTo('App\Booth');
     }
 
-    public function package()
+    public function expo_package()
     {
-        return $this->belongsTo('App\Package');
+        return $this->belongsTo('App\ExpoPackage');
     }
 
     public function invoice()
