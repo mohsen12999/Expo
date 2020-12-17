@@ -31,7 +31,7 @@ class CreateUserExpoPackagesTable extends Migration
 
             // $table->foreignId('booth_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('package_id')->nullable()->constrained();
+            $table->foreignId('expo_package_id')->nullable()->constrained();
             $table->foreignId('invoice_id')->nullable()->constrained();
         });
     }
