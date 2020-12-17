@@ -54,7 +54,7 @@ class BoothController extends Controller
         //
         $menu = 'booth';
         $user_id = Auth::user()->id;
-        $userPackages = UserExpoPackage::with('package')
+        $userPackages = UserExpoPackage::with('expo_package')
             ->where([
                 ['user_id', '=', $user_id],
                 ['status', '=', 0],
@@ -106,8 +106,8 @@ class BoothController extends Controller
      */
     public function store(Request $request)
     {
-        $userPackage = UserExpoPackage::with('package')->find($request->package_id);
-        $package = $userPackage->package;
+        $userPackage = UserExpoPackage::with('expo_package')->find($request->package_id);
+        $package = $userPackage->expo_package;
 
         $booth = new Booth;
 
@@ -199,7 +199,7 @@ class BoothController extends Controller
         $booth->status = 0;
         $booth->user_id = Auth::user()->id;
 
-        $booth->user_package_id = $request->package_id;
+        $booth->user_expo_package_id = $request->package_id;
         $booth->expo_package_id = $package->id;
 
         $booth->expo_id = $request->expo_id;
@@ -241,7 +241,7 @@ class BoothController extends Controller
         $userPackage->save();
 
         $expo = Expo::find($booth->expo_id);
-        $invoice = Invoice::find($userPackage->item_id);
+        $invoice = Invoice::where([['item_id', $userPackage->id], ['type', 1]])->first();
         $invoice->item_name = $expo->title;
         $invoice->save();
 
@@ -410,8 +410,8 @@ class BoothController extends Controller
         $booth->status = 0;
         $booth->user_id = Auth::user()->id;
 
-        $booth->user_package_id = $request->package_id;
-        $booth->package_id = $package->id;
+        $booth->user_expo_package_id = $request->package_id;
+        $booth->expo_package_id = $package->id;
 
         $booth->expo_id = $request->expo_id;
         $booth->theme_id = $request->theme_id;
