@@ -29,7 +29,7 @@
             @endphp
 
             <button type="button" disabled class="btn btn-secondary btn-{{$booth_number}}"
-                title="{{$this_booth->user->name}}">{{$booth_number}}</button>
+                title="{{($this_booth && $this_booth->user)?$this_booth->user->name:""}}">{{$booth_number}}</button>
 
             @else
             <button type="submit" formaction="/admin/expo-admin/booth_location/{{$booth_number}}"
