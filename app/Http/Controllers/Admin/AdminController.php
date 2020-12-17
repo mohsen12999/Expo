@@ -41,7 +41,7 @@ class AdminController extends Controller
         $package_count = Package::count();
         $User_count = User::count();
         $invoice_count = Invoice::count();
-        $ticket_count = Ticket::count();
+        $ticket_count = Ticket::where('status', "<", '3')->count();
 
         return view('admin.admin', compact('expo_count', 'category_count', 'package_count', 'User_count', 'invoice_count', 'ticket_count', 'menu'));
     }
@@ -93,8 +93,10 @@ class AdminController extends Controller
     {
         $menu = 'tickets';
         $tickets = Ticket::orderBy('id', 'desc')->get();
+        $open_tickets = $tickets->where('status', '<', 3);
+        $close_tickets = $tickets->where('status', '=', 3);
 
-        return view('admin.tickets.tickets', compact('tickets', 'menu'));
+        return view('admin.tickets.tickets', compact('tickets', 'menu', 'open_tickets', 'close_tickets'));
     }
 
     public function closeTicket(Request $request, $id)
