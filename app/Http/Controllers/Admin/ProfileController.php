@@ -146,6 +146,7 @@ class ProfileController extends Controller
             $userPackage->start = $lastSamePackage->userPackage->end;
         }
         $userPackage->end = $userPackage->start->addMonth($package->duration);
+        $userPackage->status = 1;
         $userPackage->save();
 
         $userCategory = new UserCategory;
