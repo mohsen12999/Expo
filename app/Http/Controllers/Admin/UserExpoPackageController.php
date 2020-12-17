@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ExpoPackage;
 use App\Http\Controllers\Controller;
 use App\Invoice;
-use App\Package;
 use App\UserExpoPackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +44,7 @@ class UserExpoPackageController extends Controller
     {
         //
         $menu = 'my_expo_package';
-        $packages = Package::all();
+        $packages = ExpoPackage::all();
         return view('admin.user_expo_packages.buy_package', compact('packages', 'menu'));
     }
 
@@ -59,7 +59,7 @@ class UserExpoPackageController extends Controller
         //
         $menu = 'my_expo_package';
         $request_id = $request->id;
-        $package = Package::find($request->id);
+        $package = ExpoPackage::find($request->id);
         $price = $package->price;
 
         return view('admin.user_expo_packages.bank_page', compact('request_id', 'price', 'menu'));
@@ -78,9 +78,9 @@ class UserExpoPackageController extends Controller
         $userPackage = new UserExpoPackage;
 
         $userPackage->user_id = Auth::user()->id;
-        $userPackage->package_id = $request->id;
+        $userPackage->expo_package_id = $request->id;
 
-        $package = Package::find($request->id);
+        $package = ExpoPackage::find($request->id);
         $userPackage->title = $package->title;
         $userPackage->description = '';
         $userPackage->start = $package->start ?? null;
