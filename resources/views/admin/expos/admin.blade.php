@@ -64,7 +64,7 @@
                             </form>
                             @endif
 
-                            <a class="btn btn-info" href="admin/expo-admin/booth_location/{{$booth->id}}">
+                            <a class="btn btn-info" href="{{ url('admin/expo-admin/booth_location/'.$booth->id) }}">
                                 <i class="fa-map-o" title="{{ __('words.ChangeLocation') }}"></i>
                                 {{ __('words.ChangeLocation') }}
                             </a>
