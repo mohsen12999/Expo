@@ -30,7 +30,7 @@ class UserExpoPackageController extends Controller
         //
         $menu = 'my_expo_package';
         $user_id = Auth::user()->id;
-        $userPackages = UserExpoPackage::with('package')->where('user_id', $user_id)->get();
+        $userPackages = UserExpoPackage::with('expo_package')->where('user_id', $user_id)->get();
 
         return view('admin.user_expo_packages.index', compact('userPackages', 'menu'));
     }
