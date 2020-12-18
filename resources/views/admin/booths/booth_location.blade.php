@@ -27,7 +27,7 @@
             @endphp
 
             <button type="button" disabled class="btn btn-secondary btn-{{$booth_number}}"
-                title="{{$this_booth->user?$this_booth->user->name:""}}">{{$booth_number}}</button>
+                title="{{($this_booth&&$this_booth->user)?$this_booth->user->name:""}}">{{$booth_number}}</button>
             @else
             <button type="submit" formaction="/admin/booth/booth-location/{{$booth_number}}"
                 class="btn btn-primary btn-{{$booth_number}}">{{$booth_number}}</button>

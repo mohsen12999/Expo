@@ -24,7 +24,7 @@
                 $this_booth = $booths->where("booth_map_id","=",$booth_number)->first();
                 @endphp
                 <a href="{{url('/map/'.$expo->id.'/'.$booth_number)}}" class="btn btn-primary btn-{{$booth_number}}"
-                    title="{{$this_booth->user?$this_booth->user->name:""}}">{{$booth_number}}</a>
+                    title="{{($this_booth && $this_booth->user)?$this_booth->user->name:""}}">{{$booth_number}}</a>
                 @else
                 <a href="#" class="btn btn-secondary btn-{{$booth_number}}" title="Empty Booth">{{$booth_number}}</a>
                 @endif
