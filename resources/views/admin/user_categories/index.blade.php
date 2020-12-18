@@ -7,63 +7,66 @@
 
 @section('content')
 <section>
-  <h1>{{ __('words.YourCategory') }}</h1>
+    <h1>{{ __('words.YourCategory') }}</h1>
 </section>
 
 <section class="content container-fluid">
-  <!--------------------------
+    <!--------------------------
 | Your Page Content Here |
 -------------------------->
 
-  <div class="col-xs-12">
-    <div class="box">
+    <div class="col-xs-12">
+        <div class="box">
 
-      <!-- box-header -->
-      <div class="box-header">
-        <h3 class="box-title">{{ __('words.YourCategory') }}</h3>
-        <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary pull-right"
-          style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
-      </div>
-      <!-- /.box-header -->
+            <!-- box-header -->
+            <div class="box-header">
+                <h3 class="box-title">{{ __('words.YourCategory') }}</h3>
+                <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary pull-right"
+                    style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
+            </div>
+            <!-- /.box-header -->
 
 
-      <div class="box-body table-responsive no-padding">
+            <div class="box-body table-responsive no-padding">
 
-        @if (count($userCategories) === 0)
-        <div class="no-data">
-          <h3>{{ __('words.NoPackageMessage') }}</h3>
-          <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary" style="margin-left: 1em;"><i
-              class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
+                @if (count($userCategories) === 0)
+                <div class="no-data">
+                    <h3>{{ __('words.NoPackageMessage') }}</h3>
+                    <a href="{{url('admin/user-category/choose-package')}}" class="btn btn-primary"
+                        style="margin-left: 1em;"><i class="fa fa-plus"></i> {{ __('words.BuyCategory') }}</a>
+                </div>
+                @else
+
+                <table class="table table-hover persian-table table-striped table-bordered">
+                    <tr>
+                        <th>{{ __('words.Pic') }}</th>
+                        <th>{{ __('words.Title') }}</th>
+                        <th>{{ __('words.Package') }}</th>
+                        <th>{{ __('words.StartTime') }}</th>
+                        <th>{{ __('words.EndTime') }}</th>
+                    </tr>
+
+                    @foreach ($userCategories as $category)
+
+                    <tr>
+                        <td><img src="{{$category->category->pic}}" height="75"
+                                alt="{{ $category->category->title }} pic" /></td>
+                        <td>{{$category->category->title}}</td>
+                        <td>{{$category->userPackage? $category->userPackage->title:""}}</td>
+                        <td>{{$category->userPackage? $category->userPackage->start:""}}</td>
+                        <td>{{$category->userPackage? $category->userPackage->end:""}}</td>
+                    </tr>
+
+                    @endforeach
+
+                </table>
+
+                @endif
+
+            </div>
+
         </div>
-        @else
-
-        <table class="table table-hover persian-table table-striped table-bordered">
-          <tr>
-            <th>{{ __('words.Pic') }}</th>
-            <th>{{ __('words.Title') }}</th>
-            <th>{{ __('words.StartTime') }}</th>
-            <th>{{ __('words.EndTime') }}</th>
-          </tr>
-
-          @foreach ($userCategories as $category)
-
-          <tr>
-            <td><img src="{{$category->category->pic}}" height="75" alt="{{ $category->category->title }} pic" /></td>
-            <td>{{$category->category->title}}</td>
-            <td>{{$category->userPackage? $category->userPackage->start:""}}</td>
-            <td>{{$category->userPackage? $category->userPackage->end:""}}</td>
-          </tr>
-
-          @endforeach
-
-        </table>
-
-        @endif
-
-      </div>
-
     </div>
-  </div>
 
 </section>
 
