@@ -141,7 +141,7 @@ class ProfileController extends Controller
         $package = Package::find($userPackage->package_id);
 
         $userPackage->start = Carbon::now();
-        $lastSamePackage = UserCategory::with('userPackage')->where('category_id', 1)->orderBy('id', 'desc')->first();
+        $lastSamePackage = UserCategory::with('userPackage')->where('category_id',  $request->id)->orderBy('id', 'desc')->first();
         if ($lastSamePackage && $lastSamePackage->userPackage->end->gt(Carbon::now())) {
             $userPackage->start = $lastSamePackage->userPackage->end;
         }
