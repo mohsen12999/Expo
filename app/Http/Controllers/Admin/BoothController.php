@@ -297,7 +297,7 @@ class BoothController extends Controller
         $themes = Theme::all();
 
         $user_id = Auth::user()->id;
-        $userPackages = UserExpoPackage::with('package')->where('user_id', $user_id)->get();
+        $userPackages = UserExpoPackage::with('expo_package')->where('user_id', $user_id)->get();
 
         $booth_images = Image::where('booth_id', $id);
 
