@@ -275,4 +275,5 @@ return [
     'YourCategoryPackage' => 'Your Category Package',
     'YourExpoPackage' => 'Your Expo Package',
     'MyBoothPackage' => 'My Booth Package',
+    'EditBooth' => 'Edit Booth',
 ];

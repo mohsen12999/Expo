@@ -274,4 +274,5 @@ return [
     'YourCategoryPackage' => 'کنگوری های شما',
     'YourExpoPackage' => 'نمایشگاه شما',
     'MyBoothPackage' => 'پکیج غرفه شما',
+    'EditBooth' => 'تغییر غرفه',
 ];
