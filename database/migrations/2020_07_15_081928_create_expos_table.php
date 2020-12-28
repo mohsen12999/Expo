@@ -32,7 +32,7 @@ class CreateExposTable extends Migration
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
 
-            $table->unsignedBigInteger('history')->default(0); // 0 Temporary(start-end) or 1 Permanently
+            $table->unsignedBigInteger('history')->default(0);
             $table->unsignedBigInteger('type'); // 0 Temporary(start-end) or 1 Permanently
             $table->string('type_desc');
 
