@@ -90,13 +90,13 @@
             <h3 class="no-news">{{ __('words.NoBooths') }}</h3>
             @else
 
-            <div class="col-xs-12 ">
+            <div class="col-12 col-xs-12 ">
                 <div class="form-group">
                     Search: <input type="text" class="form-control" onkeyup="searchFunction(this)">
                 </div>
             </div>
 
-            <div class="col-xs-12 ">
+            <div class="col-12 col-xs-12 ">
 
                 @foreach ($booths as $booth)
                 <div class="booth-row row post-div" data-title="{{$booth->title}}" data-user="{{$booth->user->name}}">

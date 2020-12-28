@@ -108,8 +108,7 @@ desired effect
                             </a>
                             <ul class="dropdown-menu">
                                 {{-- <li class="header">You have 2 language</li> --}}
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
+
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
@@ -139,10 +138,9 @@ desired effect
                                         </li>
                                     </ul>
                                 </li>
+                                {{-- <li class="footer"><a href="#">See All Messages</a></li> --}}
+                            </ul>
                         </li>
-                        {{-- <li class="footer"><a href="#">See All Messages</a></li> --}}
-                    </ul>
-                    </li>
                     </ul>
                 </nav>
             </nav>
@@ -348,7 +346,7 @@ desired effect
         <!-- Main Footer -->
         <footer class="main-footer">
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2020 <a href="#">Expo</a>.</strong> All rights
+            <strong>Copyright &copy; 2020 <a href="{{ url("/") }}">Expo</a>.</strong> All rights
             reserved.
         </footer>
 
