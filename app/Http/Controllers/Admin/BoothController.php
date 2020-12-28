@@ -76,7 +76,7 @@ class BoothController extends Controller
         //
         $menu = 'booth';
         $package_id =  $request->id;
-        $expos = Expo::where('status', 1)->get();
+        $expos = Expo::where([['status', 1], ['history', 0]])->get();
         return view('admin.booths.choose_expo', compact('expos', 'package_id', 'menu'));
     }
 
@@ -293,7 +293,7 @@ class BoothController extends Controller
         $menu = 'booth';
         $booth = Booth::find($id);
 
-        $expos = Expo::where('status', 1)->get();
+        $expos = Expo::where([['status', 1], ['history', 0]])->get();
         $themes = Theme::all();
 
         $user_id = Auth::user()->id;
