@@ -38,7 +38,7 @@
                         @endif
 
 
-                        @if ($expo->expoImages)
+                        @if ($expo->expoImages && count($expo->expoImages)>0 )
 
                         <img id="gallery_img_{{ $expo->id }}" src="{{asset('/img/catalogue.png')}}"
                             style="width: 50px; cursor:pointer" onclick="show_gallery_{{ $expo->id }}()">
