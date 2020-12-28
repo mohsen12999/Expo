@@ -134,4 +134,6 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::post('/admin/user-expo-package/buy-package', 'Admin\UserExpoPackageController@boughtPackage')->name('boughtExpoPackage');
 
     Route::get('/admin/your-invoice', 'Admin\DashboardController@yourInvoices')->name('yourInvoices');
+
+    Route::post('/admin/expo-history', 'Admin\ExpoController@expoHistory')->name('expoHistory');
 });
