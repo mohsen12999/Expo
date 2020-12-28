@@ -32,7 +32,7 @@ class ExpoPackageController extends Controller
         $menu = 'expo_packages';
         $packages = ExpoPackage::all();
 
-        return view('admin.packages.index', compact('packages', 'menu'));
+        return view('admin.expo_packages.index', compact('packages', 'menu'));
     }
 
 
