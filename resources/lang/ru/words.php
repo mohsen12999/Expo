@@ -276,4 +276,9 @@ return [
     'YourExpoPackage' => 'Your Expo Package',
     'MyBoothPackage' => 'My Booth Package',
     'EditBooth' => 'Edit Booth',
+    'ActiveExpo' => 'Active Expo',
+    'ArchiveExpo' => 'Archive Expo',
+    'Send2History' => 'Send to History',
+    'Send2Active' => 'Send to Active',
+    'Owner' => 'Owner',
 ];

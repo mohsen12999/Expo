@@ -275,4 +275,9 @@ return [
     'YourExpoPackage' => 'نمایشگاه شما',
     'MyBoothPackage' => 'پکیج غرفه شما',
     'EditBooth' => 'تغییر غرفه',
+    'ActiveExpo' => 'نمایشگاه فعال',
+    'ArchiveExpo' => 'نمایشگاه آرشیوی',
+    'Send2History' => 'ارسال به آرشیو',
+    'Send2Active' => 'فعال کردن',
+    'Owner' => 'نام شرکت',
 ];

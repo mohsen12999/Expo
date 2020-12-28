@@ -281,5 +281,10 @@ return [
     'YourExpoPackage' => 'Your Expo Package',
     'MyBoothPackage' => 'My Booth Package',
     'EditBooth' => 'Edit Booth',
+    'ActiveExpo' => 'Active Expo',
+    'ArchiveExpo' => 'Archive Expo',
+    'Send2History' => 'Send to Archive',
+    'Send2Active' => 'Make Active',
+    'Owner' => 'Owner Company',
     '' => '',
 ];
