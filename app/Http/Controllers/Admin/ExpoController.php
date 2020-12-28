@@ -38,7 +38,10 @@ class ExpoController extends Controller
         $menu = 'expo';
         $expos = Expo::with(['booths', 'expoComments', 'expoImages'])->orderBy('id', 'desc')->get();
 
-        return view('admin.expos.index', compact('expos', 'menu'));
+        $active_expos = $expos->where('history', 0);
+        $archive_expos = $expos->where('history', 1);
+
+        return view('admin.expos.index', compact('expos', 'active_expos', 'archive_expos', 'menu'));
     }
 
     /**
@@ -269,7 +272,7 @@ class ExpoController extends Controller
     public function expoAdmin($id)
     {
         $menu = 'expo';
-        $booths = Booth::where('expo_id', $id)->get();
+        $booths = Booth::with('user')->where('expo_id', $id)->get();
         $expo = Expo::find($id);
         return view('admin.expos.admin', compact('booths', 'menu', 'expo'));
     }
@@ -302,5 +305,15 @@ class ExpoController extends Controller
         $booth->confirm = 1;
         $booth->save();
         return redirect('admin/expo-admin/' . $booth->expo_id)->with('success', 'Booth Confirmed');
+    }
+
+    public function expoHistory(Request $request)
+    {
+        $id = $request->id;
+        $expo = Expo::find($id);
+        $expo->history = $request->history;
+        $expo->save();
+
+        return redirect('admin/expo/')->with('success', 'expo saved');
     }
 }
