@@ -9,7 +9,7 @@ use App\UserExpoPackage;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-
+use App\Ticket;
 
 class DashboardController extends Controller
 {
@@ -49,8 +49,9 @@ class DashboardController extends Controller
         $expo_package_count = UserExpoPackage::where('user_id', $user_id)->count();
         $booth_count = Booth::where('user_id', $user_id)->count();
         $invoice_count = Invoice::where('user_id', $user_id)->count();
+        $ticket_count = Ticket::where('sender_id', $user_id)->count();
 
-        return view('admin.dashboard', compact('package_count', 'expo_package_count', 'booth_count', 'invoice_count', 'menu'));
+        return view('admin.dashboard', compact('package_count', 'expo_package_count', 'booth_count', 'invoice_count', 'ticket_count', 'menu'));
     }
 
 

@@ -77,6 +77,22 @@
             </div>
         </div>
 
+        <div class="col-lg-4 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3>{{$ticket_count}}</h3>
+
+                    <p>{{ __('words.Tickets') }}</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <a href="{{url('admin\tickets')}}" class="small-box-footer">{{ __('words.TicketsList') }} <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
     </div>
 </section>
 
