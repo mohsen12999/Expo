@@ -41,40 +41,47 @@
                         @if ($expo->expoImages && count($expo->expoImages)>0 )
 
                         <img id="gallery_img_{{ $expo->id }}" src="{{asset('/img/catalogue.png')}}"
-                            style="width: 50px; cursor:pointer" onclick="show_gallery_{{ $expo->id }}()">
-                        <script>
+                            style="width: 50px; cursor:pointer"
+                            onclick="document.querySelector('#history_gallery_{{ $expo->id }}').children[0].click()">
+                        {{-- <script>
                             function show_gallery_{{ $expo->id }}() {
-                                $(this).lightGallery({
-                                    dynamic: true,
-                                    dynamicEl: [
-                                        @foreach ($expo->expoImages as $expoImage)
-                                            { "src": '{{url($expoImage->path)}}', 'thumb': '{{url($expoImage->path)}}', },
-                                        @endforeach
-                                    ]
-                                });
-                                }
-                        </script>
+                        $(this).lightGallery({
+                        share:false,
+                        galleryId: {{ $expo->id }},
+                        dynamic: true,
+                        dynamicEl: [
+                        @foreach ($expo->expoImages as $expoImage)
+                        { "src": '{{url($expoImage->path)}}', 'thumb': '{{url($expoImage->path)}}', },
+                        @endforeach
+                        ]
+                        });
+                        }
+                        </script> --}}
 
-                        {{-- <div class="row">
+                        <div class="row" id="history_gallery_{{ $expo->id }}" style="display: none">
                             @foreach ($expo->expoImages as $expoImage)
-                            <div class="col-md-3 col-xs-6">
-                                <a href="{{url($expoImage->path)}}" target="_blank">
-                        <img src="{{url($expoImage->path)}}" style="max-width: 100%">
-                        </a>
+                            <a href="{{url($expoImage->path)}}" target="_blank">
+                                <img src="{{url($expoImage->path)}}" style="max-width: 100%">
+                            </a>
+                            @endforeach
+                        </div>
+
+                        {{-- <script>
+                            $('#history_gallery_{{ $expo->id }}').lightGallery({
+                        galleryId: {{ $expo->id }}
+                        });
+                        </script> --}}
+
+                        @endif
+                        <p> {{$expo->start->format('Y-m-d')}} - {{$expo->end->format('Y-m-d')}}</p>
                     </div>
-                    @endforeach
-                </div> --}}
+                </div>
 
-                @endif
-                <p> {{$expo->start->format('Y-m-d')}} - {{$expo->end->format('Y-m-d')}}</p>
             </div>
+            @endforeach
+
         </div>
-
     </div>
-    @endforeach
-
-</div>
-</div>
 </div>
 
 @endsection
@@ -94,5 +101,16 @@
                 element.style.display = (title.includes(sreach) || description.includes(sreach))?"block":"none";
             }
         }
+
+        $(document).ready(function() {
+
+            @foreach ($expos as $expo)
+            @if ($expo->expoImages && count($expo->expoImages)>0 )
+                $('#history_gallery_{{ $expo->id }}').lightGallery({
+                        galleryId: {{ $expo->id }},
+                    });
+            @endif
+            @endforeach
+        });
 </script>
 @endsection
