@@ -60,20 +60,22 @@
 
                     <div class="form-group">
                         <label for="video" class="control-label">{{ __('words.Video') }}</label>
-                        <input id="video" name="video" type="file" accept="video/*" class="form-control-file" />
+                        <input id="video" name="video" type="file" accept="video/*" class="form-control-file"
+                            onchange="videoCheck()" />
                         <span for="video" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="catalog" class="control-label">{{ __('words.Catalog') }}</label>
                         <input id="catalog" name="catalog" type="file" accept="application/pdf"
-                            class="form-control-file" />
+                            class="form-control-file" onchange="catalogCheck()" />
                         <span for="catalog" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="images" class="control-label">{{ __('words.Images') }}</label>
-                        <input id="images" name="images[]" type="file" multiple class="form-control-file" />
+                        <input id="images" name="images[]" type="file" multiple class="form-control-file"
+                            onchange="imageCheck()" />
                         <span for="images" class="text-danger"></span>
                     </div>
 
@@ -131,5 +133,76 @@
         showAppMessage(e.statusMessage, "error");
       }
     };
+
+    function videoCheck() {
+        const el = document.querySelector('#video');
+        const file = el.files[0];
+        if(file.size>10*1024*1024){ // 10MB
+            alert("you can only upload up to 10MB file");
+            el.value = "";
+            return false;
+        }
+
+        var vid = document.createElement('video');
+        vid.src = URL.createObjectURL(file);;
+        vid.ondurationchange = function() {
+            if(vid.duration>60){
+                alert("you can only upload video up to 1 minute");
+                el.value = "";
+                return false;
+            }
+        };
+    }
+
+    function catalogCheck() {
+        const el = document.querySelector('#catalog');
+        const file = el.files[0];
+        if(file.size>10*1024*1024){ // 10MB
+            alert("you can only upload up to 10MB file");
+            el.value = "";
+            return false;
+        }
+
+
+        @if ($package->catalog_page)
+        const maxCatalogPage = {{ $package->catalog_page }}
+        var reader = new FileReader();
+        reader.readAsBinaryString(file);
+        reader.onloadend = function(){
+            var count = reader.result.match(/\/Type[\s]*\/Page[^s]/g).length;
+            if(count>maxCatalogPage){
+                alert("you can only upload up to " + maxCatalogPage + " pages for catalog");
+            }
+        }
+        @endif
+    }
+
+    function imageCheck() {
+        const el = document.querySelector('#images');
+        const fies = el.files;
+
+        @if ($package->photo_count)
+        const maxFileCount = {{ $package->photo_count }}
+        if(files.length>maxFileCount){
+            alert("you can only upload up to " + maxFileCount + " files");
+            el.value = "";
+            return false;
+        }
+        @endif
+
+        var totalSize = 0
+        for (i = 0; i < files.length; i++)
+        {
+            if (files[i].size > 10*1024*1024){
+                alert("some of your file are too big, mor than 10MB");
+            }
+            totalSize +=files[i].size;
+        }
+        if(totalSize > 10*1024*1024){
+            alert("your files are too big, mor than 10MB");
+        }
+    }
+
+
 </script>
 @endsection

@@ -95,7 +95,10 @@ class BoothController extends Controller
 
         $themes = Theme::all();
 
-        return view('admin.booths.create', compact('themes', 'expo_id', 'package_id', 'menu'));
+        $userPackage = UserExpoPackage::with('expo_package')->find($request->package_id);
+        $package = $userPackage->expo_package;
+
+        return view('admin.booths.create', compact('themes', 'expo_id', 'package_id', 'menu', 'package'));
     }
 
     /**
