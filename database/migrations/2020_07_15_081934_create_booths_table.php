@@ -29,7 +29,7 @@ class CreateBoothsTable extends Migration
             $table->string('pic');
             $table->string('theme')->nullable();
 
-            $table->string('video')->nullable();
+            // $table->string('video')->nullable();
             $table->string('catalog')->nullable();
 
             $table->unsignedTinyInteger('status'); // 0 -> save, 1 -> active, 5 -> ended, 7 -> problem

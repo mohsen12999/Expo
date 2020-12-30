@@ -9,13 +9,14 @@ use App\Image;
 use App\Invoice;
 use App\Theme;
 use App\UserExpoPackage;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic;
 
 //use FFMpeg;
 //use Imagick;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+// use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 use Spatie;
 
 class BoothController extends Controller
@@ -133,40 +134,40 @@ class BoothController extends Controller
         $booth->title = $request->title ?? "";
         $booth->description = $request->description ?? "";
 
-        $booth->video = '';
-        if ($request->hasFile('video')) {
-            $file = $request->file('video');
-            $file_type = $file->getMimeType(); //$file->getType();
-            if (explode('/', $file_type)[0] == "video") {
+        // $booth->video = '';
+        // if ($request->hasFile('video')) {
+        //     $file = $request->file('video');
+        //     $file_type = $file->getMimeType(); //$file->getType();
+        //     if (explode('/', $file_type)[0] == "video") {
 
-                $file_size = true;
-                try {
-                    if ($package && $package->video_time && $package->video_time > 0) {
-                        // $ffprobe = FFMpeg\FFProbe::create();
-                        // $duration = $ffprobe
-                        //     ->format($filename) // extracts file informations
-                        //     ->get('duration');
+        //         $file_size = true;
+        //         try {
+        //             if ($package && $package->video_time && $package->video_time > 0) {
+        //                 // $ffprobe = FFMpeg\FFProbe::create();
+        //                 // $duration = $ffprobe
+        //                 //     ->format($filename) // extracts file informations
+        //                 //     ->get('duration');
 
-                        $media = FFMpeg::open($filename);
-                        $durationInSeconds = $media->getDurationInSeconds();
-                        $duration = $durationInSeconds / 60;
+        //                 $media = FFMpeg::open($filename);
+        //                 $durationInSeconds = $media->getDurationInSeconds();
+        //                 $duration = $durationInSeconds / 60;
 
-                        if ($duration > $package->video_time) {
-                            $file_size = false;
-                        }
-                    }
-                } catch (\Throwable $th) {
-                    //throw $th;
-                }
+        //                 if ($duration > $package->video_time) {
+        //                     $file_size = false;
+        //                 }
+        //             }
+        //         } catch (\Throwable $th) {
+        //             //throw $th;
+        //         }
 
-                if ($file_size) {
-                    $filename = time() . "_" . $file->getClientOriginalName();
-                    $filename = str_replace(" ", "", $filename);
-                    $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
-                    $booth->video = "/img/booths/video/" . $filename;
-                }
-            }
-        }
+        //         if ($file_size) {
+        //             $filename = time() . "_" . $file->getClientOriginalName();
+        //             $filename = str_replace(" ", "", $filename);
+        //             $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
+        //             $booth->video = "/img/booths/video/" . $filename;
+        //         }
+        //     }
+        // }
 
         $booth->catalog = '';
         if ($request->hasFile('catalog')) {
@@ -236,6 +237,31 @@ class BoothController extends Controller
                 $img->save();
 
                 $image_count++;
+            }
+        }
+
+        $video_count = 1;
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+
+                if ($package && $package->video_count && $package->video_count > 0 && $package->video_count < $video_count) {
+                    break;
+                }
+
+                $filename = time() . "_" . $file->getClientOriginalName();
+                $filename = str_replace(" ", "", $filename);
+                $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
+                $booth->video = "/img/booths/video/" . $filename;
+
+                $vid = new Video;
+                $vid->title = $file->getClientOriginalName();
+                $vid->description = "";
+                $vid->path = $filename;
+
+                $vid->booth_id = $booth->id;
+                $vid->save();
+
+                $video_count++;
             }
         }
 
@@ -339,43 +365,43 @@ class BoothController extends Controller
             $booth->pic = $filename;
         }
 
-        if ($request->hasFile('video')) {
-            $file = $request->file('video');
-            $file_type = $file->getMimeType(); //$file->getType();
-            if (explode('/', $file_type)[0] == "video") {
-                $file_size = true;
-                try {
-                    if ($package && $package->video_time && $package->video_time > 0) {
-                        // $ffprobe = FFMpeg\FFProbe::create();
-                        // $duration = $ffprobe
-                        //     ->format($filename) // extracts file informations
-                        //     ->get('duration');
+        // if ($request->hasFile('video')) {
+        //     $file = $request->file('video');
+        //     $file_type = $file->getMimeType(); //$file->getType();
+        //     if (explode('/', $file_type)[0] == "video") {
+        //         $file_size = true;
+        //         try {
+        //             if ($package && $package->video_time && $package->video_time > 0) {
+        //                 // $ffprobe = FFMpeg\FFProbe::create();
+        //                 // $duration = $ffprobe
+        //                 //     ->format($filename) // extracts file informations
+        //                 //     ->get('duration');
 
-                        $media = FFMpeg::open($filename);
-                        $durationInSeconds = $media->getDurationInSeconds();
-                        $duration = $durationInSeconds / 60;
+        //                 $media = FFMpeg::open($filename);
+        //                 $durationInSeconds = $media->getDurationInSeconds();
+        //                 $duration = $durationInSeconds / 60;
 
-                        if ($duration > $package->video_time) {
-                            $file_size = false;
-                        }
-                    }
-                } catch (\Throwable $th) {
-                    //throw $th;
-                }
+        //                 if ($duration > $package->video_time) {
+        //                     $file_size = false;
+        //                 }
+        //             }
+        //         } catch (\Throwable $th) {
+        //             //throw $th;
+        //         }
 
-                if ($file_size) {
-                    $filename = time() . "_" . $file->getClientOriginalName();
-                    $filename = str_replace(" ", "", $filename);
-                    $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
+        //         if ($file_size) {
+        //             $filename = time() . "_" . $file->getClientOriginalName();
+        //             $filename = str_replace(" ", "", $filename);
+        //             $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
 
-                    if ($booth->video != '' && $booth->video != null && file_exists(public_path($booth->video))) {
-                        unlink(public_path($booth->video));
-                    }
+        //             if ($booth->video != '' && $booth->video != null && file_exists(public_path($booth->video))) {
+        //                 unlink(public_path($booth->video));
+        //             }
 
-                    $booth->video = "/img/booths/video/" . $filename;
-                }
-            }
-        }
+        //             $booth->video = "/img/booths/video/" . $filename;
+        //         }
+        //     }
+        // }
 
         $booth->catalog = '';
         if ($request->hasFile('catalog')) {
@@ -439,6 +465,31 @@ class BoothController extends Controller
 
                 $img->booth_id = $booth->id;
                 $img->save();
+            }
+        }
+
+        $video_count = 1;
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+
+                if ($package && $package->video_count && $package->video_count > 0 && $package->video_count < $video_count) {
+                    break;
+                }
+
+                $filename = time() . "_" . $file->getClientOriginalName();
+                $filename = str_replace(" ", "", $filename);
+                $file->move(str_replace("index/public/img", "img", public_path("/img/booths/video/")), $filename);
+                $booth->video = "/img/booths/video/" . $filename;
+
+                $vid = new Video;
+                $vid->title = $file->getClientOriginalName();
+                $vid->description = "";
+                $vid->path = $filename;
+
+                $vid->booth_id = $booth->id;
+                $vid->save();
+
+                $video_count++;
             }
         }
 
