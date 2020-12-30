@@ -81,8 +81,12 @@ class ExpoPackageController extends Controller
         }
 
         $package->video_time = $request->video_time;
+        $package->video_size = $request->video_size;
+        $package->video_count = $request->video_count;
         $package->photo_count = $request->photo_count;
+        $package->photo_size = $request->photo_size;
         $package->catalog_page = $request->catalog_page;
+        $package->catalog_size = $request->catalog_size;
         $package->color = $request->color;
 
         $package->type = 0;
@@ -157,8 +161,12 @@ class ExpoPackageController extends Controller
         }
 
         $package->video_time = $request->video_time;
+        $package->video_size = $request->video_size;
+        $package->video_count = $request->video_count;
         $package->photo_count = $request->photo_count;
+        $package->photo_size = $request->photo_size;
         $package->catalog_page = $request->catalog_page;
+        $package->catalog_size = $request->catalog_size;
         $package->color = $request->color;
 
         $package->save();

@@ -21,8 +21,12 @@ class CreateExpoPackagesTable extends Migration
             $table->text('description')->nullable();
 
             $table->unsignedTinyInteger('video_time')->nullable();
+            $table->unsignedTinyInteger('video_count')->nullable();
+            $table->unsignedTinyInteger('video_size')->nullable();
             $table->unsignedTinyInteger('photo_count')->nullable();
+            $table->unsignedTinyInteger('photo_size')->nullable();
             $table->unsignedTinyInteger('catalog_page')->nullable();
+            $table->unsignedTinyInteger('catalog_size')->nullable();
 
             $table->string('color')->default("");
 
