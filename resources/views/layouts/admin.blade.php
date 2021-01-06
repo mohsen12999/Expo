@@ -86,7 +86,7 @@ desired effect
             <!-- Logo -->
             <a href="{{url('/home')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>Expo</span>
+                <span class="logo-mini"><b>Expo</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>Expo</b> Admin</span>
             </a>

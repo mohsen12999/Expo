@@ -62,21 +62,28 @@
                         <label for="images" class="control-label">{{ __('words.Images') }}</label>
                         <input id="images" name="images[]" type="file" multiple class="form-control-file"
                             onchange="imageCheck()" />
-                        <span for="images" class="text-danger"></span>
+                        <span for="images" class="text-danger"> @if($package->photo_count)Max
+                            {{ $package->photo_count }} pic, @endif @if($package->photo_size) Max
+                            {{ $package->photo_size }}MB @endif</span>
                     </div>
 
                     <div class="form-group">
                         <label for="videos" class="control-label">{{ __('words.Video') }}</label>
-                        <input id="videos[]" name="videos[]" type="file" multiple accept="video/*"
+                        <input id="videos" name="videos[]" type="file" multiple accept="video/*"
                             class="form-control-file" onchange="videoCheck()" />
-                        <span for="video" class="text-danger"></span>
+                        <span for="video" class="text-danger"> @if($package->video_count)Max
+                            {{ $package->video_count }} clip, @endif @if($package->video_size) Max
+                            {{ $package->video_size }}MB, @endif @if($package->video_time) Max
+                            {{ $package->video_time }}Min @endif</span>
                     </div>
 
                     <div class="form-group">
                         <label for="catalog" class="control-label">{{ __('words.Catalog') }}</label>
                         <input id="catalog" name="catalog" type="file" accept="application/pdf"
                             class="form-control-file" onchange="catalogCheck()" />
-                        <span for="catalog" class="text-danger"></span>
+                        <span for="catalog" class="text-danger"> @if($package->catalog_size) Max
+                            {{ $package->catalog_size }}MB, @endif @if($package->catalog_page) Max
+                            {{ $package->catalog_page }} pages @endif</span>
                     </div>
 
                     <hr>
@@ -134,11 +141,9 @@
       }
     };
 
-
-
     function imageCheck() {
         const el = document.querySelector('#images');
-        const fies = el.files;
+        const files = el.files;
 
         @if ($package->photo_count)
         const maxFileCount = {{ $package->photo_count }}
@@ -170,7 +175,7 @@
     }
 
     function videoCheck() {
-        const el = document.querySelector('#video');
+        const el = document.querySelector('#videos');
         const files = el.files;
 
         @if ($package->video_count)
@@ -207,7 +212,7 @@
         var vid = [];
         for (i = 0; i < files.length; i++)
         {
-            var vid[i]= document.createElement('video');
+            vid[i]= document.createElement('video');
             vid[i].src = URL.createObjectURL(files[i]);
             vid[i].ondurationchange = function() {
                 if(vid[i].duration> maxTime*60){
